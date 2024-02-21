@@ -1,0 +1,15 @@
+body {
+    background-color: #111;
+}
+
+#circle {
+    --circle-size: 40px;
+    position: fixed;
+    height: var(--circle-size);
+    width: var(--circle-size);
+    top: calc(var(--circle-size) / -2);
+    left: calc(var(--circle-size) / -2);
+    border-radius: 100%;
+    box-sizing: border-box;
+    border: 3px solid #fff;
+}
