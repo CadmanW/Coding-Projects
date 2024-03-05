@@ -3,40 +3,22 @@ const formEl = document.querySelector("#form");
 const outputEl = document.querySelector("#output");
 
 
-// Output
 function output (str) {
     outputEl.innerText = str;
 }
 
 
-// Validates the user input
 function validateInput (input) {
     const allowedChars = [
-        "0",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-
-        "*",
-        "/",
-        "+",
-        "-",
-        ".",
-        ",",
-        "^",
-        " "
+        "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+        
+        "*", "/", "+", "-", ".", ",", "^", " "
     ]
 
     // If input is just a finite number, return it as a string
     if (Number.isFinite(input)) return String(input);
 
-    // Go through every char and make sure it's in the list of allowed chars, return invalid 
+    // Go through every char and make sure it's in the list of allowedChars, return invalid if not char not in list of allowedChars
     for (let i = 0; i < input.length; i++) {
         if (!allowedChars.includes(input[i])) return "invalid";
     }
@@ -47,6 +29,7 @@ function validateInput (input) {
 
 
 function seperateExpression (expression) {
+    // The spaces in the word strings are so that the split method seperates the expression
     const symbols = {
         "*": " times ",
         "/": " divided-by ",
@@ -56,12 +39,8 @@ function seperateExpression (expression) {
         "^": " to-the-power-of "
     }
 
-    console.log(expression);
-
-    // Go through every symbol and 
-    for (let symbol in symbols) {
-        expression = expression.replace(symbol, symbols[symbol]);
-    }
+    // Go through every symbol and try to replace it in the expression with the word version
+    for (let symbol in symbols) expression = expression.replace(symbol, symbols[symbol]);
 
     // Splits the expression into numbers and words
     return expression.split(" ");
