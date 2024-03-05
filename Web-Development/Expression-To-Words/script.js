@@ -2,59 +2,15 @@ const inputEl = document.querySelector("#input");
 const formEl = document.querySelector("#form");
 const outputEl = document.querySelector("#output");
 
-// Biggest possible number in JavaScript is 9,007,199,254,740,991 or nine quadrillion
-const numbers = {
-    0: "zero",
-    1: "one",
-    2: "two",
-    3: "three",
-    4: "four",
-    5: "five",
-    6: "six",
-    7: "seven",
-    8: "eight",
-    9: "nine",
-    
-    10: "ten",
-    20: "twenty",
-    30: "thirty",
-    40: "forty",
-    50: "fifty",
-    60: "sixty",
-    70: "seventy",
-    80: "eighty",
-    90: "ninety",
-
-    100: "hundered",
-    1000: "thousand",
-    1000000: "million",
-    1000000000: "billion",
-    1000000000000: "trillion",
-    1000000000000000: "quadrillion"
-}
-
-const symbols = {
-    "*": " times ",
-    "/": " divided-by ",
-    "+": " plus ",
-    "-": " minus ",
-    ".": " point ",
-    "^": " to-the-power-of "
-}
-
-
-
 
 // Output
 function output (str) {
     outputEl.innerText = str;
 }
 
+
 // Validates the user input
-// If userInput is a number, return the number
-// For every character in userInput, if it is not in the allowedChars array, then output "invalid string"
-// If it passes the validation, return the input after deleting all spaces
-function validateInput (userInput) {
+function validateInput (input) {
     const allowedChars = [
         "0",
         "1",
@@ -77,36 +33,54 @@ function validateInput (userInput) {
         " "
     ]
 
-    if (Number.isInteger(userInput)) return parseInt(userInput);
+    // If input is just a finite number, return it as a string
+    if (Number.isFinite(input)) return String(input);
 
-    for (let i = 0; i < userInput.length; i++) {
-        if (!allowedChars.includes(userInput[i])) {
-            output(`"${userInput}" is not a valid input`);
-            return "invalid";
-        }
+    // Go through every char and make sure it's in the list of allowed chars, return invalid 
+    for (let i = 0; i < input.length; i++) {
+        if (!allowedChars.includes(input[i])) return "invalid";
     }
 
-    return userInput.replace(" ", "").replace(",", "");
+    // If input is valid and not just numbers, strip all numbers and commas
+    return input.replace(" ", "").replace(",", "");
 }
 
-function numsToWords(expression) {
-    // Changesall symbols to words
-    for (i in expression) {    
-        for (let i in symbols) {
-            expression = expression.replace(i, symbols[i]);
-        }
+
+function seperateExpression (expression) {
+    const symbols = {
+        "*": " times ",
+        "/": " divided-by ",
+        "+": " plus ",
+        "-": " minus ",
+        ".": " point ",
+        "^": " to-the-power-of "
     }
 
-    // Split the expression into parts of number and not numbers
-    expression = expression.split(" ");
+    console.log(expression);
 
-    return expression;
-    
+    // Go through every symbol and 
+    for (let symbol in symbols) {
+        expression = expression.replace(symbol, symbols[symbol]);
+    }
+
+    // Splits the expression into numbers and words
+    return expression.split(" ");
 }
 
-// This listens for any input in the input text box
+
+function translateExpression(expression) {
+    expression = seperateExpression(expression);
+    console.log(expression);
+}
+
+
+
+
+
+
+// This code block runs everytime there is an input into the form
 formEl.addEventListener("input", () => {
-    let validInput = validateInput(inputEl.value);
-
-    if (validInput !== "invalid") output(numsToWords(validInput)); 
+    // If input is invalid, output invalid, else output the translated expression
+    const input = validateInput(inputEl.value);
+    input === "invalid" ? output(`"${input}" is not a valid input`) : output(translateExpression(input)); 
 });
