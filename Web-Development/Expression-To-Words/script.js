@@ -185,8 +185,12 @@ function translateNumbers (nums) {
             }
         }
         // After translating the numbers for the group, add the bigWord
-        if (a > 0) {
-            finalString[finalString.length] = `${translate.bigWords[a - 1]}`;
+        if (numGroups.length > 1) {
+            const bigWord = translate.bigWords[numGroups.length - a - 2];
+
+            if (bigWord !== undefined) {
+                finalString[finalString.length] = bigWord;
+            }
         }
     }
 
