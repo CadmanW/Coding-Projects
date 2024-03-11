@@ -203,21 +203,21 @@ function translateNumbers (nums) {
 function translateExpression(expression) {
 
     const subExpressions = seperateExpression(expression);
-    let finalExpression = "";
+    let finalExpression = [];
 
     // For every subExpression, if it is a number, translate the numbers to words and add that to final string
     // Else, add the non-number string to the finalExpression
     for (let i in subExpressions) {
         if (Number.isFinite(Number(subExpressions[i]))) {
-            finalExpression += `${translateNumbers(subExpressions[i])} `;
+            finalExpression[finalExpression.length] = translateNumbers(subExpressions[i]);
         }
         else {
-            finalExpression += `${subExpressions[i]} `;
+            finalExpression[finalExpression.length] = subExpressions[i];
         }
     }
 
     // Remove the whitepspace at the ends of finalExpression
-    return finalExpression.trim();
+    return finalExpression.join(" ");
 }
 
 
