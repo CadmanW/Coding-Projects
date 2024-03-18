@@ -59,12 +59,12 @@ function output (str) {
 
 function validateInput (input) {
 
-    // If input is just a finite number, return it as a string
+    // If input is a finite number, return it as a string
     if (Number.isFinite(Number(input))) {
         return input;
     }
 
-    // For every char make sure it's in the list of allowedChars, return invalid if not char not in list of allowedChars
+    // For every char make sure it's in the list of allowedChars, return invalid if char not in list of allowedChars
     for (let i in input) {
         if (!translate.allowedChars.includes(input[i])) {
             return "invalid";
