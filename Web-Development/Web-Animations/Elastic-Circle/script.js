@@ -20,13 +20,13 @@ const tick = () => {
     mouse.deltaX = mouse.x - mouse.preX;
     mouse.deltaY = mouse.y - mouse.preY;
 
-    // Calculate the angle using tan then rotate the circle
-    mouse.angle = Math.atan2(mouse.deltaY, mouse.deltaX) * 180 / Math.PI;
-    transform += ` rotate(${mouse.angle}deg)`;
-
     // Update old mouse values after they're used
     mouse.preX = mouse.x;
     mouse.preY = mouse.y;
+    
+    // Calculate the angle using tan then rotate the circle
+    mouse.angle = Math.atan2(mouse.deltaY, mouse.deltaX) * 180 / Math.PI;
+    transform += ` rotate(${mouse.angle}deg)`;
     
     // Calculate mouse velocity using the pythagorean theorum, and cap the value to 150
     const mouseVelocity = Math.min(Math.sqrt((mouse.deltaX)**2 + (mouse.deltaY)**2), 150);
