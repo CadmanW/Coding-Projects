@@ -1,13 +1,13 @@
 # In Progress
-> |Status|Project Name|
-> |-|-|
-> |In Progress|[Mouse Particles](#mouse-particles)|
-> |In Progress|[CyberPatriot Scoreboard Assistant](#cyberpatriot-scoreboard-assistant)|
-> |In Progress|[Powerschool Darkmode](#powerschool-darkmode)|
-> |New|[Script Executer](#script-executer)|
-> |New|[McDonald's Email Unsubscriber](#mcdonalds-email-unsubscriber-script)|
-> |In Progress|[Cadmium Pixel Art](#cadmium-pixel-art)|
-> |In Progress|[Powerschool Grades Table Copy](#powerschool-grades-table-copy)|
+> |Folder|Status|Project Name|
+> |-|-|-|
+> |Web-Dev/Animations|In Progress|[Mouse Particles](#mouse-particles)|
+> |Web-Dev/Firefox-Extensions|In Progress|[CyberPatriot Scoreboard Assistant](#cyberpatriot-scoreboard-assistant)|
+> |Web-Dev/Firefox-Extensions|In Progress|[Powerschool Darkmode](#powerschool-darkmode)|
+> |Web-Dev/Firefox-Extensions|New|[Script Executer](#script-executer)|
+> |Web-Dev/Scripts|New|[McDonald's Email Unsubscriber](#mcdonalds-email-unsubscriber-script)|
+> |Web-Dev/Websites|In Progress|[Cadmium Pixel Art](#cadmium-pixel-art)|
+> |Web-Dev/Websites|In Progress|[Powerschool Grades Table Copy](#powerschool-grades-table-copy)|
 
 
 # Web Development
