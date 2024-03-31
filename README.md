@@ -10,7 +10,7 @@
 > |In Progress|[Powerschool Grades Table Copy](#powerschool-grades-table-copy)|
 
 
-# Web DEvelopment
+# Web Development
 > ## Animations
 >> ### [Elastic Circle](/Web-Development/Animations/Elastic-Circle)
 >>> Elasctic circle animation I DID NOT MAKE, I tried to make it on my own and made a sloppier viersion, but the final product is from following the video I found
