@@ -1,3 +1,5 @@
+This file is a project tracker I use to keep track of all my projects, as well as give a summary on them.
+
 # In Progress
 > |Folder|Status|Project Name|
 > |-|-|-|
