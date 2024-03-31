@@ -16,11 +16,7 @@ This file is a project tracker I use to keep track of all my projects, as well a
 >>> Elasctic circle animation I DID NOT MAKE, I tried to make it on my own and made a sloppier viersion, but the final product is from following the video I found
 >>
 >>### [Mouse-Particles](/Web-Development/Animations/Mouse-Particles/)
->>> Particles coming off of the mouse that jump, randomly off the mouse, then fall
->>>
->>> **TODO**
->>>
->>> - Get the right equation for the tranform: translate(x, y)
+>>> Particles are randomly generated at the cursor, then fall
 >
 > ## Firefox Extensions
 >> ### [CyberPatriot Scoreboard Assistant](/Web-Development/CyberPatriot-Extension)
