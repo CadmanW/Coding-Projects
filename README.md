@@ -1,7 +1,6 @@
 # In Progress
 > |Folder|Status|Project Name|
 > |-|-|-|
-> |Web-Dev/Animations|In Progress|[Mouse Particles](#mouse-particles)|
 > |Web-Dev/Firefox-Extensions|In Progress|[CyberPatriot Scoreboard Assistant](#cyberpatriot-scoreboard-assistant)|
 > |Web-Dev/Firefox-Extensions|In Progress|[Powerschool Darkmode](#powerschool-darkmode)|
 > |Web-Dev/Firefox-Extensions|New|[Script Executer](#script-executer)|
