@@ -6,7 +6,6 @@
 > |Web-Dev/Firefox-Extensions|In Progress|[Powerschool Darkmode](#powerschool-darkmode)|
 > |Web-Dev/Firefox-Extensions|New|[Script Executer](#script-executer)|
 > |Web-Dev/Scripts|New|[McDonald's Email Unsubscriber](#mcdonalds-email-unsubscriber-script)|
-> |Web-Dev/Websites|In Progress|[Cadmium Pixel Art](#cadmium-pixel-art)|
 > |Web-Dev/Websites|In Progress|[Powerschool Grades Table Copy](#powerschool-grades-table-copy)|
 
 
@@ -70,13 +69,6 @@
 >>>> Unsubscribes all emails from the McDonald's app email notifications
 >
 >> ## Websites
->>> ### [Cadmium Pixel Art](/Web-Development/Websites/Cadmium-Pixel-Art)
->>> One page website for making pixel art
->>>
->>> **TODO**
->>>
->>> - Make the image drawn downloadable
->>
 >>> ### [Expresision To Words](/Web-Development/Websites/Expression-To-Words)
 >>>> One page website for turning an expression into it's word form
 >>>>

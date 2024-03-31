@@ -1,3 +1,4 @@
+// Keep the X and Y values of the mouse
 const mouse = {
     x: 0,
     y: 0
@@ -15,7 +16,7 @@ document.addEventListener("mousemove", (event) => {
 
 
 
-
+// Create the particle
 function createParticle () {
 
     const seed = Math.random();
@@ -46,6 +47,7 @@ function createParticle () {
 
 
 
+//  Animate the particles
 let oldDuration = 0;
 
 function tick(newDuration) { 
