@@ -10,8 +10,8 @@
 > |In Progress|[Powerschool Grades Table Copy](#powerschool-grades-table-copy)|
 
 
-# [Web Development](/Web-Development)
-> ## [Animations](/Web-Development/Animations)
+# Web DEvelopment
+> ## Animations
 >> ### [Elastic Circle](/Web-Development/Animations/Elastic-Circle)
 >>> Elasctic circle animation I DID NOT MAKE, I tried to make it on my own and made a sloppier viersion, but the final product is from following the video I found
 >>
@@ -20,7 +20,7 @@
 >>> #### TODO
 >>>> - Get the right equation for the tranform: translate(x, y)
 >
->## [Firefox Extensions](/Web-Development/Firefox-Extensions)
+>## Firefox Extensions
 >> ### [CyberPatriot Scoreboard Assistant](/Web-Development/CyberPatriot-Extension)
 >>> Lets you select scoreboard through right click (context) menus
 >>> #### Ideas
@@ -55,11 +55,11 @@
 >>>> - JavaScript
 >>>> - make it
 >
->> ## [Scripts](/Web-Development/Scripts)
+>> ## Scripts
 >>> ### [McDonald's Email Unsubscriber Script](/Web-Development/Scripts/McDonald's-Email-Unsubscriber.js)
 >>>> Unsubscribes all emails from the McDonald's app email notifications
 >
->> ## [Websites](/Web-Development/Websites)
+>> ## Websites
 >>> ### [Cadmium Pixel Art](/Web-Development/Websites/Cadmium-Pixel-Art)
 >>> One page website for making pixel art
 >>> #### TODO
@@ -73,7 +73,7 @@
 >> ### [Powerschool Grades Table Copy](/Web-Development/Websites/Powerschool-Grades-Copy)
 >>> Simple copy of the table in the student verion of powerschool I tried to make
 
-# [Software-Developemnt](/Software-Development)
-> ## [Python](/Software-Development/Python)
+# Software Development
+> ## Python
 >> ### [Image to ASCII art](/Software-Development/Python/img-to-ascii)
 >>> Converts images to ascii art based on pixel brightness
