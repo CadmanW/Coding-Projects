@@ -73,6 +73,7 @@
 >> ### [Powerschool Grades Table Copy](/Web-Development/Websites/Powerschool-Grades-Copy)
 >>> Simple copy of the table in the student verion of powerschool I tried to make
 
-# Software-Developemnt
-> ## Python
->> ### 
+# [Software-Developemnt](/Software-Development)
+> ## [Python](/Software-Development/Python)
+>> ### [Image to ASCII art](/Software-Development/Python/img-to-ascii)
+>>> Converts images to ascii art based on pixel brightness
