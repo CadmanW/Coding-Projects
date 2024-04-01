@@ -3,30 +3,30 @@ This file is a project tracker I use to keep track of all my projects, as well a
 # File Topography
 > **[Web-Development](#web-development)**
 >> **[Animations](#animations)**
->>> [Elastic-Circle](#elastic-circle)
+>>> *[Elastic-Circle](#elastic-circle)*
 >>>
->>> [Mouse-Particles](#mouse-particles)
+>>> *[Mouse-Particles](#mouse-particles)*
 >>
 >> **[Firefox-Extensions](#firefox-extensions)**
->>> [CyberPatriot-Scoreboard-Assistant](#cyberpatriot-scoreboard-assistant)
+>>> *[CyberPatriot-Scoreboard-Assistant](#cyberpatriot-scoreboard-assistant)*
 >>>
->>> [Mouse-Customizer](#mouse-customizer)
+>>> *[Mouse-Customizer](#mouse-customizer)*
 >>>
->>> [Powerschool-Darkmode](#powerschool-darkmode)
+>>> *[Powerschool-Darkmode](#powerschool-darkmode)*
 >>>
->>> [Script-Executer](#script-executer)
+>>> *[Script-Executer](#script-executer)*
 >>
 >> **[Scripts](#scripts)**
->>> [McDonald's-Email-Unsubscriber.js](#mcdonalds-email-unsubscriber-script)
+>>> *[McDonald's-Email-Unsubscriber.js](#mcdonalds-email-unsubscriber-script)*
 >>
 >> **[Websites](#websites)**
->>> [Expression-To-Words](#expresision-to-words)
+>>> *[Expression-To-Words](#expresision-to-words)*
 >>>
->>> [Powerschool-Grades-Copy](#powerschool-grades-copy)
+>>> *[*Powerschool-Grades-Copy](#powerschool-grades-copy)*
 >
 > **[Software-Development](#software-development)**
 >> **[Python](#python)**
->>> [Img-To-Ascii](#img-to-scii)
+>>> *[Img-To-Ascii](#img-to-scii)*
 
 
 # Project Tracker
