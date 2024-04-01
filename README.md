@@ -1,6 +1,35 @@
 This file is a project tracker I use to keep track of all my projects, as well as give a summary on them.
 
-# In Progress
+# File Topography
+> **[Web-Development](#web-development)**
+>> **[Animations](#animations)**
+>>> [Elastic-Circle](#elastic-circle)
+>>>
+>>> [Mouse-Particles](#mouse-particles)
+>>
+>> **[Firefox-Extensions](#firefox-extensions)**
+>>> [CyberPatriot-Scoreboard-Assistant](#cyberpatriot-scoreboard-assistant)
+>>>
+>>> [Mouse-Customizer](#mouse-customizer)
+>>>
+>>> [Powerschool-Darkmode](#powerschool-darkmode)
+>>>
+>>> [Script-Executer](#script-executer)
+>>
+>> **[Scripts](#scripts)**
+>>> [McDonald's-Email-Unsubscriber.js](#mcdonalds-email-unsubscriber-script)
+>>
+>> **[Websites](#websites)**
+>>> [Expression-To-Words](#expresision-to-words)
+>>>
+>>> [Powerschool-Grades-Copy](#powerschool-grades-copy)
+>
+> **[Software-Development](#software-development)**
+>> **[Python](#python)**
+>>> [Img-To-Ascii](#img-to-scii)
+
+
+# Project Tracker
 > |Folder|Status|Project Name|
 > |-|-|-|
 > |Web-Dev/Firefox-Extensions|In Progress|[CyberPatriot Scoreboard Assistant](#cyberpatriot-scoreboard-assistant)|
@@ -8,6 +37,7 @@ This file is a project tracker I use to keep track of all my projects, as well a
 > |Web-Dev/Firefox-Extensions|New|[Script Executer](#script-executer)|
 > |Web-Dev/Scripts|New|[McDonald's Email Unsubscriber](#mcdonalds-email-unsubscriber-script)|
 > |Web-Dev/Websites|In Progress|[Powerschool Grades Table Copy](#powerschool-grades-table-copy)|
+> |Web-Dev/Firefox-Extensions|New|[Mouse Customizer](#mouse-customizer)|
 
 
 # Web Development
@@ -26,6 +56,9 @@ This file is a project tracker I use to keep track of all my projects, as well a
 >>>
 >>> - make it so that you can move the scoreboards around after they are added, but more can be added after moving them around
 >>> - add a button in the context menus that lets you delete a scoreborad that has been added to the viewing panel
+>>
+>> ### [Mouse Customizer](/Web-Development/Firefox-Extensions/Mouse-Customizer)
+>>>
 >>
 >> ### [Powerschool Darkmode](/Web-Development/Firefox-Extensions/Powershcool-Darkmode)
 >>> Turns powerschool webview to a darkmode theme
@@ -71,10 +104,10 @@ This file is a project tracker I use to keep track of all my projects, as well a
 >>>>
 >>>> Note: does not support negatives
 >>
->> ### [Powerschool Grades Table Copy](/Web-Development/Websites/Powerschool-Grades-Copy)
+>> ### [Powerschool Grades Copy](/Web-Development/Websites/Powerschool-Grades-Copy)
 >>> Simple copy of the table in the student verion of powerschool I tried to make
 
 # Software Development
 > ## Python
->> ### [Image to ASCII art](/Software-Development/Python/img-to-ascii)
+>> ### [Image To Ascii](/Software-Development/Python/Img-to-ascii)
 >>> Converts images to ascii art based on pixel brightness
