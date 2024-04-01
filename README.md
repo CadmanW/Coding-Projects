@@ -49,7 +49,7 @@ This file is a project tracker I use to keep track of all my projects, as well a
 >>> Particles are randomly generated at the cursor, then fall
 >
 > ## Firefox Extensions
->> ### [CyberPatriot Scoreboard Assistant](/Web-Development/CyberPatriot-Extension)
+>> ### [CyberPatriot Scoreboard Assistant](/Web-Development/Firefox-Extensions/CyberPatriot-Scoreboard-Assistant/)
 >>> Lets you select scoreboard through right click (context) menus
 >>>
 >>> **Ideas**
@@ -112,6 +112,7 @@ This file is a project tracker I use to keep track of all my projects, as well a
 >>
 >> ### [Powerschool Grades Copy](/Web-Development/Websites/Powerschool-Grades-Copy)
 >>> Simple copy of the table in the student verion of powerschool I tried to make
+
 
 # Software Development
 > ## Python
