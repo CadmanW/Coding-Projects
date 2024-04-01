@@ -58,7 +58,13 @@ This file is a project tracker I use to keep track of all my projects, as well a
 >>> - add a button in the context menus that lets you delete a scoreborad that has been added to the viewing panel
 >>
 >> ### [Mouse Customizer](/Web-Development/Firefox-Extensions/Mouse-Customizer)
+>>> Firefox extention that lets you customize your mouse
 >>>
+>>> **Ideas**
+>>> - Let use upload a custom picture for the mouse if they want
+>>> - For certain affects, let the user customize the effect some (change the values in the formulas if there are any, or change something to a custom image/color)
+>>> - Let the user customize an outline of some sort of the mouse
+>>> - Make the outline ALSO outline custom mouse images if they are used
 >>
 >> ### [Powerschool Darkmode](/Web-Development/Firefox-Extensions/Powershcool-Darkmode)
 >>> Turns powerschool webview to a darkmode theme
