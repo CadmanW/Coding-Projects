@@ -22,7 +22,7 @@ This file is a project tracker I use to keep track of all my projects, as well a
 >> **[Websites](#websites)**
 >>> *[Expression-To-Words](#expresision-to-words)*
 >>>
->>> *[*Powerschool-Grades-Copy](#powerschool-grades-copy)*
+>>> *[Powerschool-Grades-Copy](#powerschool-grades-copy)*
 >
 > **[Software-Development](#software-development)**
 >> **[Python](#python)**
