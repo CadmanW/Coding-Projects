@@ -12,8 +12,6 @@ This file is a project tracker I use to keep track of all my projects, as well a
 >>>
 >>> *[Mouse-Customizer](#mouse-customizer)*
 >>>
->>> *[Powerschool-Darkmode](#powerschool-darkmode)*
->>>
 >>> *[Script-Executer](#script-executer)*
 >>
 >> **[Scripts](#scripts)**
@@ -21,8 +19,6 @@ This file is a project tracker I use to keep track of all my projects, as well a
 >>
 >> **[Websites](#websites)**
 >>> *[Expression-To-Words](#expresision-to-words)*
->>>
->>> *[Powerschool-Grades-Copy](#powerschool-grades-copy)*
 >
 > **[Software-Development](#software-development)**
 >> **[Python](#python)**
@@ -33,10 +29,8 @@ This file is a project tracker I use to keep track of all my projects, as well a
 > |Folder|Status|Project Name|
 > |-|-|-|
 > |Web-Dev/Firefox-Extensions|In Progress|[CyberPatriot Scoreboard Assistant](#cyberpatriot-scoreboard-assistant)|
-> |Web-Dev/Firefox-Extensions|In Progress|[Powerschool Darkmode](#powerschool-darkmode)|
 > |Web-Dev/Firefox-Extensions|New|[Script Executer](#script-executer)|
 > |Web-Dev/Scripts|New|[McDonald's Email Unsubscriber](#mcdonalds-email-unsubscriber-script)|
-> |Web-Dev/Websites|In Progress|[Powerschool Grades Table Copy](#powerschool-grades-table-copy)|
 > |Web-Dev/Firefox-Extensions|New|[Mouse Customizer](#mouse-customizer)|
 
 
@@ -65,13 +59,6 @@ This file is a project tracker I use to keep track of all my projects, as well a
 >>> - For certain affects, let the user customize the effect some (change the values in the formulas if there are any, or change something to a custom image/color)
 >>> - Let the user customize an outline of some sort of the mouse
 >>> - Make the outline ALSO outline custom mouse images if they are used
->>
->> ### [Powerschool Darkmode](/Web-Development/Firefox-Extensions/Powershcool-Darkmode)
->>> Turns powerschool webview to a darkmode theme
->>>
->>> **Ideas**
->>>
->>> - Add the aility to toggle the theme from dark and light
 >>
 >> ### [Script Executer ](/Web-Development/Firefox-Extensions/Script-Executer/)
 >>> Execute a javascript file into the current webpage
@@ -109,9 +96,6 @@ This file is a project tracker I use to keep track of all my projects, as well a
 >>>> One page website for turning an expression into it's word form
 >>>>
 >>>> Note: does not support negatives
->>
->> ### [Powerschool Grades Copy](/Web-Development/Websites/Powerschool-Grades-Copy)
->>> Simple copy of the table in the student verion of powerschool I tried to make
 
 
 # Software Development
