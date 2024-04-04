@@ -12,9 +12,6 @@ This file is a project tracker I use to keep track of all my projects, as well a
 >>>
 >>> *[Mouse-Customizer](#mouse-customizer)*
 >>
->> **[Scripts](#scripts)**
->>> *[McDonald's-Email-Unsubscriber.js](#mcdonalds-email-unsubscriber-script)*
->>
 >> **[Websites](#websites)**
 >>> *[Expression-To-Words](#expresision-to-words)*
 >
@@ -26,9 +23,8 @@ This file is a project tracker I use to keep track of all my projects, as well a
 # Project Tracker
 > |Folder|Status|Project Name|
 > |-|-|-|
+> |Web-Dev/Games|In Progress|[Chem Garden](#chem-garden)
 > |Web-Dev/Firefox-Extensions|In Progress|[CyberPatriot Scoreboard Assistant](#cyberpatriot-scoreboard-assistant)|
-> |Web-Dev/Firefox-Extensions|New|[Script Executer](#script-executer)|
-> |Web-Dev/Scripts|New|[McDonald's Email Unsubscriber](#mcdonalds-email-unsubscriber-script)|
 > |Web-Dev/Firefox-Extensions|New|[Mouse Customizer](#mouse-customizer)|
 
 
@@ -53,20 +49,20 @@ This file is a project tracker I use to keep track of all my projects, as well a
 >>> Firefox extention that lets you customize your mouse
 >>>
 >>> **Ideas**
->>> - Let use upload a custom picture for the mouse if they want
+>>> - Let user upload a custom picture for the mouse if they want
 >>> - For certain affects, let the user customize the effect some (change the values in the formulas if there are any, or change something to a custom image/color)
 >>> - Let the user customize an outline of some sort of the mouse
->>> - Make the outline ALSO outline custom mouse images if they are used
+>>> - Make the outline ALSO outline custom mouse images if they are 
 >
->> ## Scripts
->>> ### [McDonald's Email Unsubscriber Script](/Web-Development/Scripts/McDonald's-Email-Unsubscriber.js)
->>>> Unsubscribes all emails from the McDonald's app email notifications
+> ## Games
+>> ### [Chem Garden](/Web-Development/Games/Chem-Garden)
+>>> A gardening game that focuses on the science and chemistry af growing plants
 >
->> ## Websites
->>> ### [Expresision To Words](/Web-Development/Websites/Expression-To-Words)
->>>> One page website for turning an expression into it's word form
->>>>
->>>> Note: does not support negatives
+> ## Websites
+>> ### [Expresision To Words](/Web-Development/Websites/Expression-To-Words)
+>>> One page website for turning an expression into it's word form
+>>>
+>>> Note: does not support negatives
 
 
 # Software Development
