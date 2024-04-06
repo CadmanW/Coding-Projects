@@ -23,7 +23,6 @@ This file is a project tracker I use to keep track of all my projects, as well a
 # Project Tracker
 > |Folder|Status|Project Name|
 > |-|-|-|
-> |Web-Dev/Games|In Progress|[Chem Garden](#chem-garden)
 > |Web-Dev/Firefox-Extensions|In Progress|[CyberPatriot Scoreboard Assistant](#cyberpatriot-scoreboard-assistant)|
 > |Web-Dev/Firefox-Extensions|New|[Mouse Customizer](#mouse-customizer)|
 
@@ -53,10 +52,6 @@ This file is a project tracker I use to keep track of all my projects, as well a
 >>> - For certain affects, let the user customize the effect some (change the values in the formulas if there are any, or change something to a custom image/color)
 >>> - Let the user customize an outline of some sort of the mouse
 >>> - Make the outline ALSO outline custom mouse images if they are 
->
-> ## Games
->> ### [Chem Garden](/Web-Development/Games/Chem-Garden)
->>> A gardening game that focuses on the science and chemistry af growing plants
 >
 > ## Websites
 >> ### [Expresision To Words](/Web-Development/Websites/Expression-To-Words)
