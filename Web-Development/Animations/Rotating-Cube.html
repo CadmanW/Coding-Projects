@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Cube</title>
+    <style>
+
+        :root {
+            --size: 10rem;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(#f6ff7e, #71e3ff);
+        }
+
+        div {
+            height: var(--size);
+            width: var(--size);
+        }
+
+
+
+
+
+
+
+
+
+        #template {
+            transform-style: preserve-3d;
+            transition-duration: 0.3s
+            /* animation: 3s ease-in-out infinite loading; */
+        }
+
+        /* @keyframes loading {
+            0% {}
+
+            50% {
+                transform:
+                    translateY(-200px)
+                    rotateX(30deg)
+                    rotateY(180deg)
+                ;
+            }
+
+            100% {
+                transform:
+                    translateY(0px)
+                    rotateX(0deg)
+                    rotateY(360deg)
+                ;
+            }
+        } */
+
+
+
+
+
+
+
+
+
+        .face {
+            position: absolute;
+
+            font-size: 3rem;
+            font-family: sans-serif;
+            font-weight: bolder;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .one {
+            transform: 
+            translateZ(calc(var(--size) / 2));
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .two {
+            transform: 
+                rotateX(90deg)
+                translateZ(calc(var(--size) / 2));
+            background-color: rgba(255, 255, 0, 0.5);
+        }
+
+        .three {
+            transform:
+                rotateX(-90deg)
+                translateZ(calc(var(--size) / 2));
+            background-color: rgba(0, 255, 0, 0.5);
+        }
+
+        .four {
+            transform:
+                rotateX(180deg)
+                translateZ(calc(var(--size) / 2));
+            background-color: rgba(255, 0, 255, 0.5);
+        }
+
+        .five {
+            transform:
+            rotateY(90deg)
+            translateZ(calc(var(--size) / 2));
+            background-color: rgba(0, 255, 255, 0.5);
+        }
+
+        .six{
+            transform:
+                rotateY(-90deg)
+                translateZ(calc(var(--size) / 2));
+            background-color: rgba(0, 0, 255, 0.5);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="template">
+        <div class="face one">one</div>
+        <div class="face two">four</div>
+        <div class="face three">two</div>
+        <div class="face four">three</div>
+        <div class="face five">five</div>
+        <div class="face six">six</div>
+    </div>
+
+    <script>
+
+        const cube = document.querySelector("#template");
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+        // DOES NOT WORK: Gyroscope is not defined
+        // const sensor = new Gyroscope();
+
+        // let x = 0;
+        // let y = 0;
+
+        // sensor.addEventListener("reading", device => {
+
+        //     x += device.x;
+        //     y += device.y;
+
+        //     cube.style.transform = `
+        //         rotateX(${y}px)
+        //         rotateY(${x}px)
+        //     `;
+        // });
+
+        // sensor.start();
+
+
+
+
+
+
+        // DOES NOT WORK: device orientation is deprecated
+        // window.addEventListener("deviceorientation", (device) => {
+
+        //     cube.style.transform = `
+        //         rotateZ(${-e.alpha}deg)
+        //         rotateX(${-e.beta}deg)
+        //         rotateY(${e.gamma}deg)
+        //     `;
+
+        // });
+
+    </script>
+</body>
+</html>
