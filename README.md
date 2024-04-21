@@ -1,39 +1,16 @@
-This file is a project tracker I use to keep track of all my projects, as well as give a summary on them.
-
-# File Topography
-> **[Web-Development](#web-development)**
->> **[Animations](#animations)**
->>> *[Elastic-Circle](#elastic-circle)*
->>>
->>> *[Mouse-Particles](#mouse-particles)*
->>
->> **[Firefox-Extensions](#firefox-extensions)**
->>> *[CyberPatriot-Scoreboard-Assistant](#cyberpatriot-scoreboard-assistant)*
->>>
->>> *[Mouse-Customizer](#mouse-customizer)*
->>
->> **[Websites](#websites)**
->>> *[Expression-To-Words](#expresision-to-words)*
->
-> **[Software-Development](#software-development)**
->> **[Python](#python)**
->>> *[Img-To-Ascii](#img-to-scii)*
-
-
-# Project Tracker
-> |Folder|Status|Project Name|
-> |-|-|-|
-> |Web-Dev/Firefox-Extensions|In Progress|[CyberPatriot Scoreboard Assistant](#cyberpatriot-scoreboard-assistant)|
-> |Web-Dev/Firefox-Extensions|New|[Mouse Customizer](#mouse-customizer)|
-
-
 # Web Development
 > ## Animations
->> ### [Elastic Circle](/Web-Development/Animations/Elastic-Circle)
->>> Elasctic circle animation I DID NOT MAKE, I tried to make it on my own and made a sloppier viersion, but the final product is from following the video I found
+>> ### [3D-Element](/Web-Development/Animations/3D-Element/)
+>>> First time I've tried to do anything 3D. This is just an element that always faces towards the mouse.
 >>
->>### [Mouse-Particles](/Web-Development/Animations/Mouse-Particles/)
+>> ### [Elastic Circle](/Web-Development/Animations/Elastic-Circle)
+>>> Elastic circle animation I DID NOT MAKE, I tried to make it on my own and made a sloppier viersion, but the final product is from following the video I found
+>>
+>> ### [Mouse Particles](/Web-Development/Animations/Mouse-Particles/)
 >>> Particles are randomly generated at the cursor, then fall
+>>
+>> ### [Rotating Cube](/Web-Development/Animations/Rotating-Cube/)
+>>> A 3D cube that will rotate based on the device's orientation. Uses the sensors API and Gyroscope. Does not work on some browsers, such as firefox, as they do not all supports the sensors API.
 >
 > ## Firefox Extensions
 >> ### [CyberPatriot Scoreboard Assistant](/Web-Development/Firefox-Extensions/CyberPatriot-Scoreboard-Assistant/)
