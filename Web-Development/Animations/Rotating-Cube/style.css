@@ -35,23 +35,8 @@ div {
 
 #template {
     transform-style: preserve-3d;
-    /* transition-duration: 0.3s; 
-    animation: 3s ease-in-out infinite loading; */
+    transition-duration: 0.1s; 
 }
-
-/* @keyframes loading {
-    0% {}
-
-    50% {
-        transform:
-            translateY(-200px) rotateX(30deg) rotateY(180deg);
-    }
-
-    100% {
-        transform:
-            translateY(0px) rotateX(0deg) rotateY(360deg);
-    }
-} */
 
 
 
