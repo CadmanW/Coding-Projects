@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="shapes-container">
+        <img id="circle" src="images/circle.png" alt="circle">
+        <img id="rectanlge" src="images/rectangle.png" alt="rectangle">
+        <img id="rhombus" src="images/rhombus.png" alt="rhombus">
+        <img id="square" src="images/square.png" alt="square">
+    </div>
+
+    <map name="shapes-box" id="shapes-box">
+        <area id="circleArea" name="circle" shape="circle" coords="180, 220, 100">
+        <area id="squareArea" name="square" shape="square" coords="360, 120, 560, 320">
+        <area id="rectangleArea" name="rectangle" shape="square" coords="640, 170, 840, 270">
+        <area id="rhombusArea" name="rhombus" shape="poly" coords="980, 150, 1120, 150, 1060, 290, 920, 290">
+    </map>
+    <img usemap="#shapes-box" src="images/shape-table.png" alt="shapes-box">
+    <script src="script.js"></script>
+</body>
+</html>
