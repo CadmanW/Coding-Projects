@@ -1,19 +1,24 @@
 import turtle as t
+import math
+
+#* Setup
+
+size = 900
 
 # Set up the screen
+t.hideturtle()
 t.title = "SUPER COOL GAME"
-t.mode("logo")
-t.setup(width = 900, height = 900, startx = -450, starty = 450)
-t.speed(0)
-t.color('black')
+t.setup(size, size, 0, 0) #sizeX, sizeY, monitorX, monitorY
+t.speed(0) # Remove animations
+t.color("#000000", "#ffffff") # pen, fill
 t.bgcolor("#ADD8E6")
 
-# Set up the layout
+# Calculate the layout
 gridLength = int(t.numinput("Grid Size", "Give me an odd number", 5, 3, 99))
-squareSize = 900 / gridLength
-borderSize = squareSize / 10
-t.width(borderSize)
-squareSize -= borderSize / 10
+squareSize = size / gridLength
+penWidth = squareSize / 10
+t.width(penWidth)
+squareSize -= penWidth / 10
 
 
 
@@ -23,24 +28,23 @@ squareSize -= borderSize / 10
 
 
 
-
+#* Draw the grid
 
 # Horizontal
 t.seth(90)
-t.up()
 for i in range(0, gridLength + 1):
-    t.goto(-450, (squareSize * i * -1) + 450)
-    t.down()
-    t.forward(squareSize * gridLength)
     t.up()
+    t.goto(-size / 2, (-squareSize * i) + (size / 2))
+    t.down()
+    t.goto(size / 2, (-squareSize * i) + (size / 2))
 
 # Vertical
 t.seth(180)
 for i in range(0, gridLength + 1):
-    t.goto((squareSize * i) - 450, 450)
-    t.down()
-    t.forward(squareSize * gridLength)
     t.up()
+    t.goto((squareSize * i) - (size / 2), size / 2)
+    t.down()
+    t.goto((squareSize * i) - (size / 2), -size / 2)
 
 
 
@@ -48,29 +52,83 @@ for i in range(0, gridLength + 1):
 
 
 
+
+
+#* Handle input
+
+# Box that opens when there is input, displaying said input
+class DialogueBox:
+    def __init__(self):
+        # Dialogue box that's in the middle of the screen
+        # boxSizeX = size / 4
+        # boxSizeY = size / 7
+
+        # t.up()
+        # t.goto(-boxSizeX, boxSizeY)
+        # t.down()
+        # t.begin_fill()
+        # t.goto(boxSizeX, boxSizeY)
+        # t.goto(boxSizeX, -boxSizeY)
+        # t.goto(-boxSizeX, -boxSizeY)
+        # t.goto(-boxSizeX, boxSizeY)
+        # t.end_fill()
+
+        # Dialogue box that's at the bottom left
+        boxSizeX = size / 6
+        boxSizeY = size / 18
+        origin = -size / 2
+        self.origin = origin
+        self.boxSizeX = boxSizeX
+        self.boxSizeY = boxSizeY
+
+        t.up()
+        t.goto(origin, origin)
+        t.color("#ffffff", "#ffffff")
+        t.width(penWidth / 10)
+        t.down()
+        t.begin_fill()
+        t.goto(origin, origin + boxSizeY)
+        t.goto(origin + boxSizeX, origin + boxSizeY)
+        t.goto(origin + boxSizeX, origin)
+        t.goto(origin, origin)
+        t.end_fill()
+
+    input = ""
+
+    def add(self, key):
+        self.input += key
+        fontSize = self.boxSizeX / 6
+
+        t.up()
+        t.goto(self.origin + (self.boxSizeX / 2), self.origin + (self.boxSizeY / 2) - (fontSize / 2))
+        t.color("#000000", "#000000")
+        t.down()
+        t.write(f"> {self.input}", align = "center", font = ("Arial", int(fontSize), "normal"))
+
+        print(self.input)
+
+# Function that runs on input
+dialogueBox = None
 
 def handleInput(key):
-    print(key)
+    # Initialize class DialogueBox() if it's not already existing
+    
+    global dialogueBox
+
+    try:
+        t.undo()
+        print(key)
+        dialogueBox.add(key)
+    except:
+        dialogueBox = DialogueBox()
+        dialogueBox.add(key)
 
 # Listen for input
-t.onkey((lambda: handleInput("0")), "0")
-t.onkey((lambda: handleInput("1")), "1")
-t.onkey((lambda: handleInput("2")), "2")
-t.onkey((lambda: handleInput("3")), "3")
-t.onkey((lambda: handleInput("4")), "4")
-t.onkey((lambda: handleInput("5")), "5")
-t.onkey((lambda: handleInput("6")), "6")
-t.onkey((lambda: handleInput("7")), "7")
-t.onkey((lambda: handleInput("8")), "8")
-t.onkey((lambda: handleInput("9")), "9")
-t.onkey((lambda: handleInput("r")), "r")
-t.onkey((lambda: handleInput("o")), "o")
-t.onkey((lambda: handleInput("y")), "y")
-t.onkey((lambda: handleInput("g")), "g")
-t.onkey((lambda: handleInput("b")), "b")
-t.onkey((lambda: handleInput("i")), "i")
-t.onkey((lambda: handleInput("v")), "v")
+keys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "r", "o", "y", "g", "b", "i", "v", "Enter", "Backspace"]
+for key in keys:
+    t.onkey((lambda k=key: handleInput(k)), key)
 
+# Focus the window to listen for input
 t.listen()
 
 
@@ -81,5 +139,5 @@ t.listen()
 
 
 
-# Keeps window open
-t.mainloop()
+#* Keeps window open
+t.done()
