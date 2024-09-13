@@ -90,11 +90,18 @@ class DialogueBox:
         t.down()
         t.write(f"> {self.input}", align = "center", font = ("Arial", int(self.fontSize), "normal"))
 
-        print(self.input)
-
     def submitCMD(self):
-        # Validate input
+        #* Validate input
         input = [self.input[:-1], self.input[-1]]
+
+        try:
+            int(input[0])
+
+            # Color input[1] the square input[0] and the color
+
+        except:
+            print("Invalid Command")
+
 
 # Function that runs on input
 dialogueBox = None
@@ -107,6 +114,7 @@ def handleInput(key):
     try:
         dialogueBox # Throws an error if dialogueBox doesn't exist
 
+        print(key)
         if key == "-": 
             dialogueBox.input = dialogueBox.input[:-1]
             t.undo()
@@ -132,14 +140,6 @@ for key in keys:
 
 # Focus the window to listen for input
 t.listen()
-
-
-
-
-
-
-
-
 
 #* Keeps window open
 t.done()
