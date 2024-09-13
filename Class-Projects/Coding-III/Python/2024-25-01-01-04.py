@@ -1,9 +1,8 @@
 import turtle as t
-import math
 
 #* Setup
 
-size = 900
+size = 700
 
 # Set up the screen
 t.hideturtle()
@@ -59,21 +58,7 @@ for i in range(0, gridLength + 1):
 # Box that opens when there is input, displaying said input
 class DialogueBox:
     def __init__(self):
-        # Dialogue box that's in the middle of the screen
-        # boxSizeX = size / 4
-        # boxSizeY = size / 7
-
-        # t.up()
-        # t.goto(-boxSizeX, boxSizeY)
-        # t.down()
-        # t.begin_fill()
-        # t.goto(boxSizeX, boxSizeY)
-        # t.goto(boxSizeX, -boxSizeY)
-        # t.goto(-boxSizeX, -boxSizeY)
-        # t.goto(-boxSizeX, boxSizeY)
-        # t.end_fill()
-
-        # Dialogue box that's at the bottom left
+        # Calculate size and position of dialogue box to put it at the bottom left of the screen
         boxSizeX = size / 6
         boxSizeY = size / 18
         origin = -size / 2
@@ -81,6 +66,7 @@ class DialogueBox:
         self.boxSizeX = boxSizeX
         self.boxSizeY = boxSizeY
 
+        # draws the Dialogue box
         t.up()
         t.goto(origin, origin)
         t.color("#ffffff", "#ffffff")
@@ -95,36 +81,52 @@ class DialogueBox:
 
     input = ""
 
-    def add(self, key):
-        self.input += key
-        fontSize = self.boxSizeX / 6
+    def update(self):
+        self.fontSize = self.boxSizeX / 6
 
         t.up()
-        t.goto(self.origin + (self.boxSizeX / 2), self.origin + (self.boxSizeY / 2) - (fontSize / 2))
+        t.goto(self.origin + (self.boxSizeX / 2), self.origin + (self.boxSizeY / 2) - (self.fontSize / 2))
         t.color("#000000", "#000000")
         t.down()
-        t.write(f"> {self.input}", align = "center", font = ("Arial", int(fontSize), "normal"))
+        t.write(f"> {self.input}", align = "center", font = ("Arial", int(self.fontSize), "normal"))
 
         print(self.input)
+
+    def submitCMD(self):
+        # Validate input
+        input = [self.input[:-1], self.input[-1]]
 
 # Function that runs on input
 dialogueBox = None
 
 def handleInput(key):
-    # Initialize class DialogueBox() if it's not already existing
-    
+    # Use the global variable for dialogueBox instead of local
     global dialogueBox
+    #? Maybe use nonlocal instead? https://docs.python.org/3/reference/simple_stmts.html#nonlocal
 
     try:
-        t.undo()
-        print(key)
-        dialogueBox.add(key)
+        dialogueBox # Throws an error if dialogueBox doesn't exist
+
+        if key == "-": 
+            dialogueBox.input = dialogueBox.input[:-1]
+            t.undo()
+            dialogueBox.update()
+
+        elif key == "/":
+            dialogueBox.submitCMD()
+
+        else:
+            dialogueBox.input += key
+            t.undo()
+            dialogueBox.update()
+
     except:
         dialogueBox = DialogueBox()
-        dialogueBox.add(key)
+        dialogueBox.input += key
+        dialogueBox.update()
 
 # Listen for input
-keys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "r", "o", "y", "g", "b", "i", "v", "Enter", "Backspace"]
+keys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "r", "o", "y", "g", "b", "i", "v", "-", "/"]
 for key in keys:
     t.onkey((lambda k=key: handleInput(k)), key)
 
