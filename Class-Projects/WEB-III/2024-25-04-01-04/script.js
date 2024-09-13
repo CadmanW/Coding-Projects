@@ -1,39 +1,65 @@
-const sqrSize = 50;
+const sqrSize = 15;
 
-
+// Wait for the window to load
 window.addEventListener("load", ()=>{
-    Object.keys(letters).forEach(letter => {
+    // for every key entry in the bitmaps object
+    Object.keys(bitmaps).forEach(key => {
 
-        bitmap = letters[letter]
+        // get the bitmap itself
+        const bitmap = bitmaps[key];
 
+        // Make the SVG
         const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svg.setAttribute("width", bitmap[0].length * sqrSize)
-        svg.setAttribute("height", bitmap.length * sqrSize)
+        svg.setAttribute("width", bitmap[0].length * sqrSize);
+        svg.setAttribute("height", bitmap.length * sqrSize);
         
+        //* Draw the squares in the SVG
+        // For every row in the bitmap
+        for (let row in bitmap) {
+            // For every entry in the row
+            for (let x in bitmap[row]) {
 
-
-        for (let y in bitmap) {
-            for (let x in bitmap[y]) {
+                // Create the square
                 const sqr = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-
                 sqr.setAttribute("x", sqrSize * x);
-                sqr.setAttribute("y", sqrSize * y);
+                sqr.setAttribute("y", sqrSize * row);
+                sqr.setAttribute("width", sqrSize);
+                sqr.setAttribute("height", sqrSize);
+                sqr.setAttribute("stroke", "#000000");
 
-                sqr.setAttribute("width", sqrSize)
-                sqr.setAttribute("height", sqrSize)
+                //* Figure out what color we fill the square with
+                let fillColor = null;
 
-                console.log(x)
-                if (bitmap[y][x] === 1) {
-                    sqr.setAttribute("fill", "#0000ff")
-                } else {
-                    sqr.setAttribute("fill", "#ffffff")
+                // Check the length of the rows
+                switch (bitmaps[key][0].length) {
+                    case (3):
+                        fillColor = "#ffc000";
+                        break;
+                    case (4):
+                        // Make it a different color if the bitmap is representing a number
+                        if (Number.isInteger(parseInt(key))) {
+                            fillColor = "#70ad47";
+                        } else {
+                            fillColor = "#5b9bd5"
+                        }
+                        break;
+                    case (5):
+                        fillColor = "#ed7d31";
+                        break;
                 }
 
-                sqr.setAttribute("stroke", "#000000")
+                // If the current square of the bitmap holds 1, then fill the square
+                if (bitmap[row][x] === 1) {
+                    sqr.setAttribute("fill", fillColor);
+                } else {
+                    sqr.setAttribute("fill", "#ffffff");
+                }
 
-                svg.appendChild(sqr)
+                // Add the square to the SVG
+                svg.appendChild(sqr);
             }
         }
+        // Add the SVG to the DOM
         document.body.appendChild(svg);
     });
 });
