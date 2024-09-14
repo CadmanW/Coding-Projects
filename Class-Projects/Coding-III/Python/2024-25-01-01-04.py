@@ -1,4 +1,5 @@
 import turtle as t
+import math
 
 #* Setup
 
@@ -91,13 +92,52 @@ class DialogueBox:
         t.write(f"> {self.input}", align = "center", font = ("Arial", int(self.fontSize), "normal"))
 
     def submitCMD(self):
-        #* Validate input
+        # Get command into parts for square selection and color
         input = [self.input[:-1], self.input[-1]]
 
+        # Throws an error if input is invalid
         try:
-            int(input[0])
+            #* Color input[1] the square input[0] and the color
+            # Figure out color selected
+            color = str(input[1])
+            match (color):
+                case 'r':
+                    color = "#FF0000"
+                case 'o':
+                    color = "#FFA500"
+                case 'y':
+                    color = "#FFFF00"
+                case 'g':
+                    color = "#00FF00"
+                case 'b':
+                    color = "#0000FF"
+                case 'i':
+                    color = "#4B0082"
+                case 'v':
+                    color = "#8F00FF"
 
-            # Color input[1] the square input[0] and the color
+
+            # Figure out (x, y) of the square selected
+            num = int(input[0])
+
+            x = num % gridLength
+
+            y = 1
+            while num >= gridLength:
+                num = num / gridLength
+                y += 1
+
+            print(x, y)
+            t.up()
+            t.goto((-size / 2) + (x * squareSize), (-size / 2) + (y * squareSize))
+            t.seth(0)
+            t.color("#000000", color)
+            t.down()
+            t.begin_fill()
+            for i in range(4):
+                t.fd(squareSize)
+                t.right(90)
+            t.end_fill()
 
         except:
             print("Invalid Command")
@@ -114,7 +154,6 @@ def handleInput(key):
     try:
         dialogueBox # Throws an error if dialogueBox doesn't exist
 
-        print(key)
         if key == "-": 
             dialogueBox.input = dialogueBox.input[:-1]
             t.undo()
