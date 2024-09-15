@@ -1,4 +1,4 @@
-const sqrSize = 15;
+const sqrSize = 100;
 
 // Wait for the window to load
 window.addEventListener("load", ()=>{

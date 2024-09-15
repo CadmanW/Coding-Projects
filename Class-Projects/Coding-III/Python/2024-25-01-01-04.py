@@ -1,17 +1,16 @@
 import turtle as t
-import math
 
 #* Setup
 
-size = 700
+size = 1000
 
-# Set up the screen
+# Set up the application
 t.hideturtle()
 t.title = "SUPER COOL GAME"
 t.setup(size, size, 0, 0) #sizeX, sizeY, monitorX, monitorY
 t.speed(0) # Remove animations
-t.color("#000000", "#ffffff") # pen, fill
 t.bgcolor("#ADD8E6")
+t.setundobuffer(4)
 
 # Calculate the layout
 gridLength = int(t.numinput("Grid Size", "Give me an odd number", 5, 3, 99))
@@ -29,6 +28,7 @@ squareSize -= penWidth / 10
 
 
 #* Draw the grid
+t.color("#000000", "#ffffff") # pen, fill
 
 # Horizontal
 t.seth(90)
@@ -83,6 +83,8 @@ class DialogueBox:
     input = ""
 
     def update(self):
+        t.setundobuffer(t.undobufferentries() + 1)
+
         self.fontSize = self.boxSizeX / 6
 
         t.up()
@@ -94,6 +96,13 @@ class DialogueBox:
     def submitCMD(self):
         # Get command into parts for square selection and color
         input = [self.input[:-1], self.input[-1]]
+        self.input = ""
+
+        while t.undobufferentries():
+            t.undo()
+
+        # for i in range(len(input) + 11):
+        #     t.undo()
 
         # Throws an error if input is invalid
         try:
@@ -120,24 +129,26 @@ class DialogueBox:
             # Figure out (x, y) of the square selected
             num = int(input[0])
 
-            x = num % gridLength
+            x = num % gridLength - 1
 
-            y = 1
+            y = 0
             while num >= gridLength:
                 num = num / gridLength
                 y += 1
 
-            print(x, y)
             t.up()
-            t.goto((-size / 2) + (x * squareSize), (-size / 2) + (y * squareSize))
+            t.goto((-size / 2) + (x * squareSize) + (penWidth / 2), (size / 2) - (y * squareSize) - (penWidth / 2))
             t.seth(0)
             t.color("#000000", color)
             t.down()
             t.begin_fill()
             for i in range(4):
-                t.fd(squareSize)
+                t.fd(squareSize - penWidth)
                 t.right(90)
             t.end_fill()
+
+            global dialogueBox
+            dialogueBox = None
 
         except:
             print("Invalid Command")
@@ -174,6 +185,7 @@ def handleInput(key):
 
 # Listen for input
 keys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "r", "o", "y", "g", "b", "i", "v", "-", "/"]
+
 for key in keys:
     t.onkey((lambda k=key: handleInput(k)), key)
 
