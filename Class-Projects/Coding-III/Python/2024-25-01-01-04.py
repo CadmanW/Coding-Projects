@@ -1,7 +1,6 @@
 import turtle as t
 
 #* Setup
-
 size = 1000
 
 # Set up the application
@@ -67,7 +66,7 @@ class DialogueBox:
         self.boxSizeX = boxSizeX
         self.boxSizeY = boxSizeY
 
-        # draws the Dialogue box
+        # Draws the Dialogue box
         t.up()
         t.goto(origin, origin)
         t.color("#ffffff", "#ffffff")
@@ -106,36 +105,34 @@ class DialogueBox:
 
         # Throws an error if input is invalid
         try:
-            #* Color input[1] the square input[0] and the color
             # Figure out color selected
-            color = str(input[1])
-            match (color):
-                case 'r':
-                    color = "#FF0000"
-                case 'o':
-                    color = "#FFA500"
-                case 'y':
-                    color = "#FFFF00"
-                case 'g':
-                    color = "#00FF00"
-                case 'b':
-                    color = "#0000FF"
-                case 'i':
-                    color = "#4B0082"
-                case 'v':
-                    color = "#8F00FF"
+            colors = {
+                'r': "#FF0000",
+                'o': "#FFA500",
+                'y': "#FFFF00",
+                'g': "#00FF00",
+                'b': "#0000FF",
+                'i': "#4B0082",
+                'v': "#8F00FF"
+            }
+
+            color = colors[str(input[1])]
 
 
             # Figure out (x, y) of the square selected
             num = int(input[0])
 
-            x = num % gridLength - 1
+            x = (num - 1) % gridLength
 
             y = 0
             while num >= gridLength:
                 num = num / gridLength
                 y += 1
 
+            print("x, y", x, y)
+            print(x * squareSize, y * squareSize)
+
+            # Draw the newly color-filled square
             t.up()
             t.goto((-size / 2) + (x * squareSize) + (penWidth / 2), (size / 2) - (y * squareSize) - (penWidth / 2))
             t.seth(0)
@@ -183,14 +180,23 @@ def handleInput(key):
         dialogueBox.input += key
         dialogueBox.update()
 
-# Listen for input
+
+
+
+
+
+
+
+
+#* Listen for input
 keys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "r", "o", "y", "g", "b", "i", "v", "-", "/"]
 
+# Bind handleInput(key_pressed) to the keys
 for key in keys:
     t.onkey((lambda k=key: handleInput(k)), key)
 
 # Focus the window to listen for input
 t.listen()
 
-#* Keeps window open
+# Keeps window open
 t.done()
