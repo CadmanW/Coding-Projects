@@ -1,7 +1,7 @@
 import turtle as t
 
 #* Setup
-size = 1000
+size = 800
 
 # Set up the application
 t.hideturtle()
