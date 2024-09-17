@@ -2,7 +2,7 @@
 import turtle as t
 
 #* Setup
-size = 800
+size = 700
 
 # Set up the application
 t.hideturtle()
@@ -10,7 +10,7 @@ t.title = "SUPER COOL GAME"
 t.setup(size, size, 0, 0) #sizeX, sizeY, monitorX, monitorY
 t.speed(0) # Remove animations
 t.bgcolor("#ADD8E6")
-t.setundobuffer(50)
+t.setundobuffer(1024)
 
 # Calculate the layout
 gridLength = int(t.numinput("Grid Size", "Give me an odd number", 5, 3, 99))
@@ -43,7 +43,9 @@ def drawGrid():
 
 # Box that opens when there is input, displaying said input
 class DialogueBox:
-    def __init__(self):
+    def draw(self):
+        self.status = 1
+
         # Calculate size and position of dialogue box to put it at the bottom left of the screen
         boxSizeX = size / 6
         boxSizeY = size / 18
@@ -55,7 +57,7 @@ class DialogueBox:
         # Draws the Dialogue box
         t.up()
         t.goto(origin, origin)
-        t.color("#ffffff", "#ffffff")
+        t.color("#ff0000", "#ffffff")
         t.width(penWidth / 10)
         t.down()
         t.begin_fill()
@@ -65,11 +67,11 @@ class DialogueBox:
         t.goto(origin, origin)
         t.end_fill()
 
+    status = 0
+
     input = ""
 
     def update(self):
-        t.setundobuffer(t.undobufferentries() + 1)
-
         self.fontSize = self.boxSizeX / 6
 
         t.up()
@@ -78,16 +80,16 @@ class DialogueBox:
         t.down()
         t.write(f"> {self.input}", align = "center", font = ("Arial", int(self.fontSize), "normal"))
 
+
     def submitCMD(self):
         # Get command into parts for square selection and color
         input = [self.input[:-1], self.input[-1]]
         self.input = ""
 
-        while t.undobufferentries():
-            t.undo()
+        for i in range(14):
+           t.undo()
 
-        # for i in range(len(input) + 11):
-        #     t.undo()
+        self.status = 0
 
         # Throws an error if input is invalid
         try:
@@ -111,16 +113,10 @@ class DialogueBox:
             x = (num - 1) % gridLength
 
             y = 0
-
-            if (y % gridLength == 0):
-                y += 1
-            
-            while num >= gridLength:
-                num = num / gridLength
+            while num > gridLength:
+                num /= gridLength
                 y += 1
 
-            print("x, y", x, y)
-            print(x * squareSize, y * squareSize)
 
             # Draw the newly color-filled square
             t.up()
@@ -134,98 +130,89 @@ class DialogueBox:
                 t.right(90)
             t.end_fill()
 
-            global dialogueBox
-            dialogueBox = None
-
         except:
-            print("Invalid Command")
+            print(f"Invalid Command: \"{self.input}\"")
+
+        global dialogueBox
+        del dialogueBox
 
 
+dialogueBox = DialogueBox()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-drawGrid()
-
-
-dialogueBox = None
 # Function that runs on input
 def handleInput(key):
-    # Use the global variable for dialogueBox instead of local
     global dialogueBox
 
-    try:
-        dialogueBox # Throws an error if dialogueBox doesn't exist
+    if dialogueBox.status:
+        match key:
+            case "-":
+                dialogueBox.input = dialogueBox.input[:-1]
+                t.undo()
+                dialogueBox.update()
+            case "/":
+                dialogueBox.submitCMD()
+            case _:
+                dialogueBox.input += key
+                t.undo()
+                dialogueBox.update()
 
-        if key == "-": 
-            dialogueBox.input = dialogueBox.input[:-1]
-            t.undo()
-            dialogueBox.update()
+    elif key == "u":
+        t.undo()
 
-        elif key == "/":
-            dialogueBox.submitCMD()
+    else:
+        dialogueBox.draw()
+        dialogueBox.input += key
+        dialogueBox.update()
 
-        else:
-            dialogueBox.input += key
-            t.undo()
-            dialogueBox.update()
 
-    except:
-        if key == "u":
-            t.undo()
-        else:
-            dialogueBox = DialogueBox()
-            dialogueBox.input += key
-            dialogueBox.update()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
 # Make notes on the commands
+#   Dialogue Box:
+#       any number (box selected) then a letter (color: roygbiv)
+#       - : backspace
+#       / : submit command
+#
+#   Outisde of dialogue box:
+#TODO       u : undo 
+#     
 
 
 
 
-#* Listen for input
+
+# Draw the grid
+drawGrid()
+
+#* Listen for and handle input
 keys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "r", "o", "y", "g", "b", "i", "v", "-", "/"]
-
-# Bind handleInput(key_pressed) to the keys
 for key in keys:
     t.onkey((lambda k = key: handleInput(k)), key)
 
+
 # Focus the window to listen for input
 t.listen()
+
 
 # Keeps window open
 t.done()
