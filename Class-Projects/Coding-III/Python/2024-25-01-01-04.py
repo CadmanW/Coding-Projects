@@ -1,3 +1,4 @@
+# Import turtle and my functions file
 import turtle as t
 
 #* Setup
@@ -9,48 +10,33 @@ t.title = "SUPER COOL GAME"
 t.setup(size, size, 0, 0) #sizeX, sizeY, monitorX, monitorY
 t.speed(0) # Remove animations
 t.bgcolor("#ADD8E6")
-t.setundobuffer(4)
+t.setundobuffer(50)
 
 # Calculate the layout
 gridLength = int(t.numinput("Grid Size", "Give me an odd number", 5, 3, 99))
 squareSize = size / gridLength
 penWidth = squareSize / 10
-t.width(penWidth)
 squareSize -= penWidth / 10
+t.width(penWidth)
 
+def drawGrid():
+    
+    t.color("#000000", "#ffffff") # pen, fill
+    # Horizontal
+    t.seth(90)
+    for i in range(0, gridLength + 1):
+        t.up()
+        t.goto(-size / 2, (-squareSize * i) + (size / 2))
+        t.down()
+        t.goto(size / 2, (-squareSize * i) + (size / 2))
 
-
-
-
-
-
-
-
-#* Draw the grid
-t.color("#000000", "#ffffff") # pen, fill
-
-# Horizontal
-t.seth(90)
-for i in range(0, gridLength + 1):
-    t.up()
-    t.goto(-size / 2, (-squareSize * i) + (size / 2))
-    t.down()
-    t.goto(size / 2, (-squareSize * i) + (size / 2))
-
-# Vertical
-t.seth(180)
-for i in range(0, gridLength + 1):
-    t.up()
-    t.goto((squareSize * i) - (size / 2), size / 2)
-    t.down()
-    t.goto((squareSize * i) - (size / 2), -size / 2)
-
-
-
-
-
-
-
+    # Vertical
+    t.seth(180)
+    for i in range(0, gridLength + 1):
+        t.up()
+        t.goto((squareSize * i) - (size / 2), size / 2)
+        t.down()
+        t.goto((squareSize * i) - (size / 2), -size / 2)
 
 
 #* Handle input
@@ -125,6 +111,10 @@ class DialogueBox:
             x = (num - 1) % gridLength
 
             y = 0
+
+            if (y % gridLength == 0):
+                y += 1
+            
             while num >= gridLength:
                 num = num / gridLength
                 y += 1
@@ -151,13 +141,48 @@ class DialogueBox:
             print("Invalid Command")
 
 
-# Function that runs on input
-dialogueBox = None
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+drawGrid()
+
+
+dialogueBox = None
+# Function that runs on input
 def handleInput(key):
     # Use the global variable for dialogueBox instead of local
     global dialogueBox
-    #? Maybe use nonlocal instead? https://docs.python.org/3/reference/simple_stmts.html#nonlocal
 
     try:
         dialogueBox # Throws an error if dialogueBox doesn't exist
@@ -176,14 +201,18 @@ def handleInput(key):
             dialogueBox.update()
 
     except:
-        dialogueBox = DialogueBox()
-        dialogueBox.input += key
-        dialogueBox.update()
+        if key == "u":
+            t.undo()
+        else:
+            dialogueBox = DialogueBox()
+            dialogueBox.input += key
+            dialogueBox.update()
 
 
 
 
 
+# Make notes on the commands
 
 
 
@@ -193,7 +222,7 @@ keys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "r", "o", "y", "g", "b
 
 # Bind handleInput(key_pressed) to the keys
 for key in keys:
-    t.onkey((lambda k=key: handleInput(k)), key)
+    t.onkey((lambda k = key: handleInput(k)), key)
 
 # Focus the window to listen for input
 t.listen()
