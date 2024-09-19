@@ -2,7 +2,7 @@
 import turtle as t
 
 #* Setup
-size = 700
+size = 1300
 
 # Set up the application
 t.hideturtle()
@@ -42,7 +42,7 @@ def drawGrid():
 #* Handle input
 
 # Box that opens when there is input, displaying said input
-class DialogueBox:
+class CmdBox:
     def draw(self):
         self.status = 1
 
@@ -82,14 +82,13 @@ class DialogueBox:
 
 
     def submitCMD(self):
-        # Get command into parts for square selection and color
         input = [self.input[:-1], self.input[-1]]
         self.input = ""
-
-        for i in range(14):
-           t.undo()
-
         self.status = 0
+
+        # Delete the cmdBox
+        for i in range(16):
+           t.undo()
 
         # Throws an error if input is invalid
         try:
@@ -114,7 +113,7 @@ class DialogueBox:
 
             y = 0
             while num > gridLength:
-                num /= gridLength
+                num -= gridLength
                 y += 1
 
 
@@ -133,37 +132,34 @@ class DialogueBox:
         except:
             print(f"Invalid Command: \"{self.input}\"")
 
-        global dialogueBox
-        del dialogueBox
 
-
-dialogueBox = DialogueBox()
+cmdBox = CmdBox()
 
 
 # Function that runs on input
 def handleInput(key):
-    global dialogueBox
+    global cmdBox
 
-    if dialogueBox.status:
+    if cmdBox.status:
         match key:
-            case "-":
-                dialogueBox.input = dialogueBox.input[:-1]
+            case "BackSpace":
+                cmdBox.input = cmdBox.input[:-1]
                 t.undo()
-                dialogueBox.update()
+                cmdBox.update()
             case "/":
-                dialogueBox.submitCMD()
+                cmdBox.submitCMD()
             case _:
-                dialogueBox.input += key
+                cmdBox.input += key
                 t.undo()
-                dialogueBox.update()
+                cmdBox.update()
 
     elif key == "u":
         t.undo()
 
     else:
-        dialogueBox.draw()
-        dialogueBox.input += key
-        dialogueBox.update()
+        cmdBox.draw()
+        cmdBox.input += key
+        cmdBox.update()
 
 
 
@@ -194,8 +190,8 @@ def handleInput(key):
 #       / : submit command
 #
 #   Outisde of dialogue box:
-#TODO       u : undo 
-#     
+# TODO       u : undo 
+#
 
 
 
@@ -205,7 +201,7 @@ def handleInput(key):
 drawGrid()
 
 #* Listen for and handle input
-keys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "r", "o", "y", "g", "b", "i", "v", "-", "/"]
+keys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "r", "o", "y", "g", "b", "i", "v", "BackSpace", "/"]
 for key in keys:
     t.onkey((lambda k = key: handleInput(k)), key)
 
