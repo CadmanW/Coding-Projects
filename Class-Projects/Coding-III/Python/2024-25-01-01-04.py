@@ -3,40 +3,41 @@ import turtle as t
 
 #* Setup
 size = 1300
+cmdBox = None
 
 # Set up the application
 t.hideturtle()
 t.title = "SUPER COOL GAME"
 t.setup(size, size, 0, 0) #sizeX, sizeY, monitorX, monitorY
-t.speed(0) # Remove animations
+t.tracer(0, 0) # Remove animations
 t.bgcolor("#ADD8E6")
 t.setundobuffer(1024)
 
 # Calculate the layout
-gridLength = int(t.numinput("Grid Size", "Give me an odd number", 5, 3, 99))
+gridLength = int(t.numinput("Grid Size", "Give me an odd number", 5))
 squareSize = size / gridLength
 penWidth = squareSize / 10
 squareSize -= penWidth / 10
 t.width(penWidth)
 
-def drawGrid():
-    
-    t.color("#000000", "#ffffff") # pen, fill
-    # Horizontal
-    t.seth(90)
-    for i in range(0, gridLength + 1):
-        t.up()
-        t.goto(-size / 2, (-squareSize * i) + (size / 2))
-        t.down()
-        t.goto(size / 2, (-squareSize * i) + (size / 2))
+#* Draw the grid
+t.color("#000000", "#ffffff") # pen, fill
 
-    # Vertical
-    t.seth(180)
-    for i in range(0, gridLength + 1):
-        t.up()
-        t.goto((squareSize * i) - (size / 2), size / 2)
-        t.down()
-        t.goto((squareSize * i) - (size / 2), -size / 2)
+# Horizontal
+t.seth(90)
+for i in range(0, gridLength + 1):
+    t.up()
+    t.goto(-size / 2, (-squareSize * i) + (size / 2))
+    t.down()
+    t.goto(size / 2, (-squareSize * i) + (size / 2))
+
+# Vertical
+t.seth(180)
+for i in range(0, gridLength + 1):
+    t.up()
+    t.goto((squareSize * i) - (size / 2), size / 2)
+    t.down()
+    t.goto((squareSize * i) - (size / 2), -size / 2)
 
 
 #* Handle input
@@ -47,11 +48,9 @@ class CmdBox:
         self.status = 1
 
         # Calculate size and position of dialogue box to put it at the bottom left of the screen
-        boxSizeX = size / 6
         boxSizeY = size / 18
         origin = -size / 2
         self.origin = origin
-        self.boxSizeX = boxSizeX
         self.boxSizeY = boxSizeY
 
         # Draws the Dialogue box
@@ -62,52 +61,50 @@ class CmdBox:
         t.down()
         t.begin_fill()
         t.goto(origin, origin + boxSizeY)
-        t.goto(origin + boxSizeX, origin + boxSizeY)
-        t.goto(origin + boxSizeX, origin)
+        t.goto(origin + size, origin + boxSizeY)
+        t.goto(origin + size, origin)
         t.goto(origin, origin)
         t.end_fill()
 
-    status = 0
+        t.pu()
+        t.goto(0, 0)
 
-    input = ""
+    cmd = ""
 
     def update(self):
-        self.fontSize = self.boxSizeX / 6
+        t.undo()
+
+        self.fontSize = size / 35
 
         t.up()
-        t.goto(self.origin + (self.boxSizeX / 2), self.origin + (self.boxSizeY / 2) - (self.fontSize / 2))
+        t.goto(self.origin + (size / 2), self.origin + (self.boxSizeY / 2) - (self.fontSize / 2))
         t.color("#000000", "#000000")
         t.down()
-        t.write(f"> {self.input}", align = "center", font = ("Arial", int(self.fontSize), "normal"))
+        t.write(f"> {self.cmd}", align = "center", font = ("Arial", int(self.fontSize), "normal"))
 
 
     def submitCMD(self):
-        input = [self.input[:-1], self.input[-1]]
-        self.input = ""
-        self.status = 0
+        cmd = self.cmd.split(" ")
+        self.cmd = ""
 
-        # Delete the cmdBox
-        for i in range(16):
-           t.undo()
-
-        # Throws an error if input is invalid
+        # Throws an error if command is invalid is invalid
         try:
             # Figure out color selected
             colors = {
-                'r': "#FF0000",
-                'o': "#FFA500",
-                'y': "#FFFF00",
-                'g': "#00FF00",
-                'b': "#0000FF",
-                'i': "#4B0082",
-                'v': "#8F00FF"
+                'red': "#FF0000",
+                'orange': "#FFA500",
+                'yellow': "#FFFF00",
+                'green': "#00FF00",
+                'blue': "#0000FF",
+                'indigo': "#4B0082",
+                'voilet': "#8F00FF"
             }
 
-            color = colors[str(input[1])]
+            color = colors[str(cmd[1])]
 
 
             # Figure out (x, y) of the square selected
-            num = int(input[0])
+            num = int(cmd[0])
 
             x = (num - 1) % gridLength
 
@@ -130,36 +127,28 @@ class CmdBox:
             t.end_fill()
 
         except:
-            print(f"Invalid Command: \"{self.input}\"")
-
+            print(f"Invalid Command: \"{self.cmd}\"")
 
 cmdBox = CmdBox()
+cmdBox.draw()
 
 
 # Function that runs on input
 def handleInput(key):
     global cmdBox
 
-    if cmdBox.status:
-        match key:
-            case "BackSpace":
-                cmdBox.input = cmdBox.input[:-1]
-                t.undo()
-                cmdBox.update()
-            case "/":
-                cmdBox.submitCMD()
-            case _:
-                cmdBox.input += key
-                t.undo()
-                cmdBox.update()
-
-    elif key == "u":
-        t.undo()
-
-    else:
-        cmdBox.draw()
-        cmdBox.input += key
-        cmdBox.update()
+    match key:
+        case "BackSpace":
+            cmdBox.cmd = cmdBox.cmd[:-1]
+            cmdBox.update()
+        case "/":
+            cmdBox.submitCMD()
+        case "space":
+            cmdBox.cmd += " "
+            cmdBox.update()
+        case _:
+            cmdBox.cmd += key
+            cmdBox.update()
 
 
 
@@ -171,37 +160,9 @@ def handleInput(key):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-# Make notes on the commands
-#   Dialogue Box:
-#       any number (box selected) then a letter (color: roygbiv)
-#       - : backspace
-#       / : submit command
-#
-#   Outisde of dialogue box:
-# TODO       u : undo 
-#
-
-
-
-
-
-# Draw the grid
-drawGrid()
 
 #* Listen for and handle input
-keys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "r", "o", "y", "g", "b", "i", "v", "BackSpace", "/"]
+keys = ["space", "BackSpace", "/", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 for key in keys:
     t.onkey((lambda k = key: handleInput(k)), key)
 
