@@ -9,6 +9,7 @@ cmdBox = None
 t.hideturtle()
 t.title = "SUPER COOL GAME"
 t.setup(size, size, 0, 0) #sizeX, sizeY, monitorX, monitorY
+t.screensize(size, size)
 t.tracer(0, 0) # Remove animations
 t.bgcolor("#ADD8E6")
 t.setundobuffer(1024)
@@ -41,19 +42,51 @@ for i in range(0, gridLength + 1):
 
 
 #* Handle input
+class CmdParser:
+    colors = {
+        'red': "#FF0000",
+        'orange': "#FFA500",
+        'yellow': "#FFFF00",
+        'green': "#00FF00",
+        'blue': "#0000FF",
+        'indigo': "#4B0082",
+        'voilet': "#8F00FF"
+    }
 
-# Box that opens when there is input, displaying said input
+    def FILL(self, shape, square, cmd, color):
+        shape = str(shape).lower()
+        square = int(square)
+        cmd = str(cmd).upper()
+        color = str(color).upper()
+
+        if shape == "square":
+            # Figure out (x, y) of the square selected
+            x = (square - 1) % gridLength
+
+            y = 0
+            while square > gridLength:
+                square -= gridLength
+                y += 1
+
+            if cmd == "WITH":
+                try:
+                    color = self.colors[color]
+                except:
+                    pass
+
+                
+
 class CmdBox:
     def draw(self):
         self.status = 1
 
-        # Calculate size and position of dialogue box to put it at the bottom left of the screen
+        # Calculate size and position of the command box
         boxSizeY = size / 18
         origin = -size / 2
         self.origin = origin
         self.boxSizeY = boxSizeY
 
-        # Draws the Dialogue box
+        # Draws the command box
         t.up()
         t.goto(origin, origin)
         t.color("#ff0000", "#ffffff")
@@ -71,6 +104,8 @@ class CmdBox:
 
     cmd = ""
 
+    cmdParser = CmdParser()
+
     def update(self):
         t.undo()
 
@@ -86,46 +121,10 @@ class CmdBox:
     def submitCMD(self):
         cmd = self.cmd.split(" ")
         self.cmd = ""
-
+                    
         # Throws an error if command is invalid is invalid
         try:
-            # Figure out color selected
-            colors = {
-                'red': "#FF0000",
-                'orange': "#FFA500",
-                'yellow': "#FFFF00",
-                'green': "#00FF00",
-                'blue': "#0000FF",
-                'indigo': "#4B0082",
-                'voilet': "#8F00FF"
-            }
-
-            color = colors[str(cmd[1])]
-
-
-            # Figure out (x, y) of the square selected
-            num = int(cmd[0])
-
-            x = (num - 1) % gridLength
-
-            y = 0
-            while num > gridLength:
-                num -= gridLength
-                y += 1
-
-
-            # Draw the newly color-filled square
-            t.up()
-            t.goto((-size / 2) + (x * squareSize) + (penWidth / 2), (size / 2) - (y * squareSize) - (penWidth / 2))
-            t.seth(0)
-            t.color("#000000", color)
-            t.down()
-            t.begin_fill()
-            for i in range(4):
-                t.fd(squareSize - penWidth)
-                t.right(90)
-            t.end_fill()
-
+            self.cmdParser[cmd[0].upper()](cmd[1], cmd[2], cmd[3], cmd[4])
         except:
             print(f"Invalid Command: \"{self.cmd}\"")
 
@@ -162,7 +161,13 @@ def handleInput(key):
 
 
 #* Listen for and handle input
-keys = ["space", "BackSpace", "/", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+keys = [
+    "space", "BackSpace", "/",
+    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",
+    "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
+    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+]
+
 for key in keys:
     t.onkey((lambda k = key: handleInput(k)), key)
 
