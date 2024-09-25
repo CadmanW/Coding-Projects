@@ -54,6 +54,8 @@ class CmdParser:
     }
 
     def FILL(self, shape, square, cmd, color):
+        print("FILL() runs")
+
         shape = str(shape).lower()
         square = int(square)
         cmd = str(cmd).upper()
@@ -123,10 +125,14 @@ class CmdBox:
         self.cmd = ""
                     
         # Throws an error if command is invalid is invalid
-        try:
-            self.cmdParser[cmd[0].upper()](cmd[1], cmd[2], cmd[3], cmd[4])
-        except:
-            print(f"Invalid Command: \"{self.cmd}\"")
+        #try:
+        match cmd[0].upper():
+            case "FILL":
+                self.cmdParser.FILL(cmd[1], cmd[2], cmd[3], cmd[4])
+            case _:
+                print("Invalid Instruction 1")
+        #except:
+        #    print(f"Invalid Command: \"{cmd}\"")
 
 cmdBox = CmdBox()
 cmdBox.draw()

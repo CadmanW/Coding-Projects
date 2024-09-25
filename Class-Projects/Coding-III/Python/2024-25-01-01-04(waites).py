@@ -5,8 +5,12 @@ t.setup(600, 600, 0, 0)
 t.screensize(400, 400)
 t.setworldcoordinates(0, 400, 400, 0)
 
-class Box():
-    def __init__(self, args):
+class Drawable():
+    def draw(self):
+        pass
+
+class Box(Drawable):
+    def __init__(self, *args):
         self.x = args[0]
         self.y = args[1]
         self.length = args[2]
@@ -23,21 +27,18 @@ class Box():
             t.seth(t.heading() + 90)
         t.end_fill
 
+class Grid(Drawable):
+    def __init__(self, *args):
+        pass
+    def draw(self):
+        # the logic for the grid to draw itself
+        pass
+
 boxes = []
 
 boxes.append(Box(0, 0, 50, "#222", "#0f0"))
 
 boxes[0].draw()
-
-
-
-
-
-
-
-
-
-
 
 t.done()
 
