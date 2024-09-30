@@ -298,18 +298,12 @@ const bitmaps = {
     ]
 }
 
-
-
-
-
-
-
-
-
 function drawBitmap(key) {
 
     // get the bitmap itself
     const bitmap = bitmaps[key];
+
+    console.log(bitmap)
 
     // Make the SVG
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -366,19 +360,12 @@ function drawBitmap(key) {
     document.body.appendChild(svg);
 }
 
-
-
-
-
-
-
-
 // Prompt for Input
 // Array.from(prompt().toLowerCase()).forEach(key => {drawBitmap(key)});
 
 document.addEventListener("keyup", keyup => {
-    const key = keyup.key.toLowerCase;
-    if (key in bitmaps.keys) {
+    const key = keyup.key.toLowerCase();
+    if (key in Object.keys(bitmaps)) {
         drawBitmap(key);
     }
 });

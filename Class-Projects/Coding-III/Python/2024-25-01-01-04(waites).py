@@ -1,9 +1,13 @@
 import turtle as t
 
+size = 400
+input = 5
+
 t.title("BOXES")
-t.setup(600, 600, 0, 0)
-t.screensize(400, 400)
-t.setworldcoordinates(0, 400, 400, 0)
+t.setup(size + 200, size + 200, 0, 0)
+t.screensize(size, size)
+t.setworldcoordinates(0, size, size, 0)
+t.tracer(0, 0)
 
 class Drawable():
     def draw(self):
@@ -17,6 +21,9 @@ class Box(Drawable):
         self.fill = args[3]
         self.stroke = args[4]
 
+    def __str__(self):
+        return f"Location: ({self.x}, {self.y}) area: {self.length ** 2} pixels"
+
     def draw(self):
         t.fillcolor(self.fill)
         t.pencolor(self.stroke)
@@ -29,16 +36,45 @@ class Box(Drawable):
 
 class Grid(Drawable):
     def __init__(self, *args):
-        pass
+        self.fill = args[0]
+        self.stroke = args[1]
+
+    def __str__(self):
+        string = ""
+
+        for i in range(input):
+            string += f"{'----' * input}-\n{f'| {i} ' * (input)}\n"
+        string += f"{'----' * input}-"
+
+        return string
+
     def draw(self):
-        # the logic for the grid to draw itself
-        pass
+        t.color(self.stroke, self.fill)
+
+        for i in range(input + 1):
+            t.pu()
+            t.goto((size / input) * i, 0)
+            t.pd()
+            t.goto((size / input) * i, size)
+
+        for i in range(input + 2):
+            t.pu()
+            t.goto(0, (size / input) * i)
+            t.pd()
+            t.goto(size, (size / input) * i)
 
 boxes = []
 
-boxes.append(Box(0, 0, 50, "#222", "#0f0"))
+boxes.append(Box(0, 0, 50, "#222", "#0F0"))
 
-boxes[0].draw()
+for box in boxes:
+    pass
 
-t.done()
+print(boxes[0])
 
+grid = Grid("white", "black")
+grid.draw()\
+
+print(grid)
+
+t.done() 
