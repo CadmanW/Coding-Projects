@@ -1,0 +1,13 @@
+6 bodies, 6 heads, 6 arms, 6 legs, 6 sets of eyes, 6 mouths
+
+Tyler       body_01.svg
+Xander      body_02.svg
+Jocelyn     body_03.svg
+Alonzon     body_04.svg
+Canton      body_05.svg
+Jonathan    body_06.svg
+Cadman      head_01.svg
+Cameron     head_02.svg
+Carlee      head_03.svg
+Stewie      head_04.svg
+Kade        head_05.svg
