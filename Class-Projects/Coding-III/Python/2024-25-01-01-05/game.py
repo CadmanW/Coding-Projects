@@ -1,10 +1,12 @@
-import turtle as t
+import turtle
 import player
-import utils
+from turtlehelpers import TurtleHelpers
 
-p1 = player.Player()
-p1.move()
-p1.move()
-p1.take_hit()
+p1 = player.Player(t=turtle, x=0, y=0, h=96, w=96, c="ff0000")
+p1.draw()
 
-utils.fill_rect(x=100, y=100, w=100, h=60, f="#fff")
+turtle.done
+
+
+# manage game state 1st lesson if you're gonna develop games
+# learn how to create a "state machine"
