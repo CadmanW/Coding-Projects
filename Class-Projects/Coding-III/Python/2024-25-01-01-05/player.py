@@ -1,44 +1,40 @@
-from turtlehelpers import TurtleHelpers
+from turtlehelper import TurtleHelper
+
+PLAYER_BLACK = "#222222"
+PLAYER_WHITE = "#F2F2F2"
+PLAYER_BLUE = "#50B4F2"
+PLAYER_RED = "#F24949"
+PLAYER_ORANGE = "#F2B705"
+PLAYER_YELLOW = "#F2E41D"
 
 class Player():
     def __init__(self, **options):
-        ''' 
-        Options:
-            t = turtle
-            x = x position
-            y = y position
-            w = width
-            h = height
-            c = color
-        '''
-        self.turtle = options["t"]
+        self.t = options["t"]
         self.x = options["x"]
         self.y = options["y"]
         self.w = options["w"]
         self.h = options["h"]
         self.c = options["c"]
 
-    def move(self):
-        pass
+    def _update(self):
+        # Background
+        TurtleHelper.fill_rect(x=self.x, y=self.y, w=self.w, h=self.h, f=PLAYER_BLACK, t=self.t)
+        # Color Rectangle
+        TurtleHelper.fill_rect(x=self.x+8, y=self.y+8, w=self.w-16, h=self.h-16, f=self.c, t=self.t)
+        # Eyeball Rectangles
+        TurtleHelper.fill_rect(x=self.x+24, y=self.y+24, w=self.w-96, h=self.h-96, f=PLAYER_WHITE, t=self.t)
+        TurtleHelper.fill_rect(x=self.x+72, y=self.y+24, w=self.w-96, h=self.h-96, f=PLAYER_WHITE, t=self.t)
+        # Pupil Rectangles
+        TurtleHelper.fill_rect(x=self.x+32, y=self.y+32, w=self.w-112, h=self.h-112, f=PLAYER_BLACK, t=self.t)
+        TurtleHelper.fill_rect(x=self.x+80, y=self.y+32, w=self.w-112, h=self.h-112, f=PLAYER_BLACK, t=self.t)
+
+    def move(self, key):
+        self._update()
+        # TO-DO start here
+        print(f"player should moce {key}")
     
     def draw(self):
-        """
-        1) draw the background rect
-            * a rect should be drawn starting at point (x, y) to the point (w, h)
-        2) draw the color rect
-            * same as step 1) but...
-                the starting point should be incremeneted by 6 to the points (w, h)
-        3) draw the eyeballs
-            3.1) draw the left eye
-            * same as step 1) but ...
-                the starting point should be incremented by 18 to the point (w, h)
-            3.2) draw the right eye
-                the starting point x sould be incremented by 
-        4) draw the pupils
-            4.1) draw the left pupil
-            4.2) draw the right pupil
-        """
-        TurtleHelpers.fill_rect(self)
+        self._update()
 
     def take_hit(self):
         pass
