@@ -1,5 +1,3 @@
-import turtle as t
-
 class TurtleHelper:
 
     @staticmethod
