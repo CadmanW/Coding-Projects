@@ -1,6 +1,6 @@
 # lab2 - student
 # updated: 2/8/2024
-# name: 
+# name: Cadman Warren
 # date: 
 
 # import the random module
