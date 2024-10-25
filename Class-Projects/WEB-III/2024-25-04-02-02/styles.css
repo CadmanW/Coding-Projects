@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+#box {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    transition-property: all;
+    transition-duration: 3s;
+    transition-timing-function: cubic-bezier(.87, .25, 0, 1.02)
+}
+
+#box:hover {
+    border-width: 10px;
+    border-radius: 50%;
+    transform: skewX(25deg);
+}
