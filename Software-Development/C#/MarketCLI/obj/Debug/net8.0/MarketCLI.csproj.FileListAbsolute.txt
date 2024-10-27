@@ -1,0 +1,15 @@
+C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\bin\Debug\net8.0\MarketCLI.exe
+C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\bin\Debug\net8.0\MarketCLI.deps.json
+C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\bin\Debug\net8.0\MarketCLI.runtimeconfig.json
+C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\bin\Debug\net8.0\MarketCLI.dll
+C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\bin\Debug\net8.0\MarketCLI.pdb
+C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\MarketCLI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\MarketCLI.AssemblyInfoInputs.cache
+C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\MarketCLI.AssemblyInfo.cs
+C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\MarketCLI.csproj.CoreCompileInputs.cache
+C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\MarketCLI.sourcelink.json
+C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\MarketCLI.dll
+C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\refint\MarketCLI.dll
+C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\MarketCLI.pdb
+C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\MarketCLI.genruntimeconfig.cache
+C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\ref\MarketCLI.dll
