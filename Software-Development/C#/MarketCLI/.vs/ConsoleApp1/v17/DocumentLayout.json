@@ -18,8 +18,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Main.cs",
+              "DocumentMoniker": "C:\\Users\\cadma\\Desktop\\GitHub\\Coding-Projects\\Software-Development\\C#\\MarketCLI\\Main.cs",
+              "RelativeDocumentMoniker": "Main.cs",
+              "ToolTip": "C:\\Users\\cadma\\Desktop\\GitHub\\Coding-Projects\\Software-Development\\C#\\MarketCLI\\Main.cs",
+              "RelativeToolTip": "Main.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIIAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-28T13:22:44.508Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,22 +42,11 @@
               "RelativeDocumentMoniker": "Classes.cs",
               "ToolTip": "C:\\Users\\cadma\\Desktop\\GitHub\\Coding-Projects\\Software-Development\\C#\\MarketCLI\\Classes.cs",
               "RelativeToolTip": "Classes.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAAANAAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T13:23:20.577Z",
+              "IsPinned": true,
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "main.cs",
-              "DocumentMoniker": "C:\\Users\\cadma\\Desktop\\GitHub\\Coding-Projects\\Software-Development\\C#\\MarketCLI\\main.cs",
-              "RelativeDocumentMoniker": "main.cs",
-              "ToolTip": "C:\\Users\\cadma\\Desktop\\GitHub\\Coding-Projects\\Software-Development\\C#\\MarketCLI\\main.cs",
-              "RelativeToolTip": "main.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T13:22:44.508Z"
             }
           ]
         }
