@@ -6,23 +6,14 @@ namespace MarketCLI
     {
         static void Main(string[] args)
         {
-            /*
-            Market CLI app
-            FEATURES:
-            - People have stands in the market where they sell / buy their assigned genre of goods like skyrim
-            - User can talk to the stand owners and buy/sell things to them
-            - User has an inventory that stores money and items
-            - Prices of things will go up and down
-
-            TODO:
-            - GetInput()
-            */
-
+            // Initialize user and vendors
             User user = InitUser();
             List<Vendor> vendors = InitVendors();
             
+            // Display the intro
             DisplayIntro(user, vendors);
 
+            // Start the Application
             bool play = true;
             while (play) 
             {
@@ -30,8 +21,18 @@ namespace MarketCLI
             }
         }
 
-        /* public static method InitUser initializes the user
-           returns an instance of the User class */
+
+
+
+
+
+
+
+
+
+        // static method InitUser initializes the user
+        // takes 0 arguments
+        // returns an instance of the User class
         public static User InitUser()
         {
             Console.WriteLine("What's your name? ");
@@ -44,33 +45,9 @@ namespace MarketCLI
             return new User(name, 1000.00f);
         }
 
-        
-
-        /* public static method DisplayIntro displays the intro to the market
-           takes 1 argument: User user
-           returns nothing */
-        public static void DisplayIntro(User user, List<Vendor> vendors)
-        {
-            Console.Write("\n");
-            for (int i = 0; i < (user.Name().Length + 26); i++)
-            {
-                Console.Write('-');
-            }
-            Console.Write(String.Format("\n| WELCOME TO THE MARKET {0} |\n", user.Name));
-            for (int i = 0; i < (user.Name().Length + 26); i++)
-            {
-                Console.Write('-');
-            }
-            Console.Write("\n\n");
-
-            Console.WriteLine("Vendors currently in the market:");
-            DisplayVendors(vendors);
-        }
-
-        
-
-        /* Public static method InitVendors initializes the vendors
-           returns an array of Vendor class instances */
+        // static method InitVendors initializes the vendors
+        // takes 0 arguments
+        // returns an array of Vendor class instances
         public static List<Vendor> InitVendors()
         {
             List<Vendor> vendors = new List<Vendor>();
@@ -91,7 +68,7 @@ namespace MarketCLI
 
             vendors.Add(new Vendor(
                 "Kenzie",
-                
+
                 "Potter",
 
                 new List<Item>
@@ -105,6 +82,30 @@ namespace MarketCLI
             return vendors;
         }
 
+        // static method DisplayIntro displays the intro to the market
+        // takes 1 argument: User
+        // returns nothing
+        public static void DisplayIntro(User user, List<Vendor> vendors)
+        {
+            Console.Write("\n");
+            for (int i = 0; i < (user.Name.Length + 26); i++)
+            {
+                Console.Write('-');
+            }
+            Console.Write(String.Format("\n| WELCOME TO THE MARKET {0} |\n", user.Name));
+            for (int i = 0; i < (user.Name.Length + 26); i++)
+            {
+                Console.Write('-');
+            }
+            Console.Write("\n\n");
+
+            Console.WriteLine("Vendors currently in the market:");
+            DisplayVendors(vendors);
+        }
+
+        // static method DisplayVendors displays all vendors in the market
+        // takes 1 argument: List<Vendor>
+        // returns nothing
         public static void DisplayVendors(List<Vendor> vendors)
         {
             for (int i = 0; i < vendors.Count; i++)
@@ -115,9 +116,22 @@ namespace MarketCLI
             Console.Write("\n");
         }
 
+        // static method GameLoop is the main game loop that starts after user and vendors initialization
+        // takes 2 arguments: User, List<Vendor>
+        // returns False if the user wants to quit the application, true if use wants to continue
         public static bool GameLoop(User user, List<Vendor> vendors)
         {
-            Console.Write("What would you like to do? (display vendors, display inventory, display <vendor name> inventory, buy <item name> from <vendor name> quit)\n> ");
+            Console.Write("""
+                What would you like to do?
+                - display vendors,
+                - display inventory,
+                - display <vendor name> inventory,
+                - buy <item name> from <vendor name>,
+                - quit
+
+                > 
+                """);
+                
             string[] input = Console.ReadLine().ToLower().Trim().Split(' ');
 
             if (input[0] == "display" && input[input.Length - 1] == "vendors")
@@ -128,14 +142,14 @@ namespace MarketCLI
             {
                 if (input.Length == 2)
                 {
-                    DisplayInventory(user.Inventory());
+                    DisplayInventory(user.Inventory);
                 }
-                else if (input.Length == 3)
+                else
                 {
                     for (int i = 0; i < vendors.Count; i++)
                     {
                         Vendor vendor = vendors[i];
-                        string vendorName = String.Format("{0} {1}", vendor.Name.ToLower(), vendor.Profession.ToLower());
+                        string vendorName = String.Format("{0} the {1}", vendor.Name.ToLower(), vendor.Profession.ToLower());
 
                         if (vendorName.Contains(input[1]))
                         {
@@ -143,6 +157,10 @@ namespace MarketCLI
                         }
                     }
                 }
+
+            }
+            else if (input[0] == "buy")
+            {
 
             }
             else if (input[0] == "quit")
@@ -153,8 +171,12 @@ namespace MarketCLI
             return true;
         }
 
+        // static method DisplayInventory displays the inventory passed into it
+        // takes 1 argument: List<Item>
+        // returns nothing
         public static void DisplayInventory(List<Item> inventory)
         {
+            Console.WriteLine();
             /* Get the max string length of the name and cost from the items */
             int maxNameLength = 0;
             int maxCostLength = 0;
@@ -241,7 +263,8 @@ namespace MarketCLI
             {
                 Console.Write('-');
             }
-            Console.Write("\n");
+            Console.Write("\n\n");
+            
         }
     }
 }
