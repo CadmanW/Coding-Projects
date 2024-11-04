@@ -1,9 +1,10 @@
-﻿namespace _2024_25_01_02_01
+﻿using System.Runtime.CompilerServices;
+
+namespace _2024_25_01_02_01
 {
     public class Program
     {
         private int playerScore = 100;
-
 
         static void Main(string[] args)
         {
@@ -23,27 +24,31 @@
 
     class Player
     {
-        // this is referred to as a FIELD
-        // a variable inside a class
-        private string name = "";
-
         // constructor methods
         public Player()
         {
-            Name = name;
+            Name = "";
+            Ability = "";
         }
         public Player(string playerName)
         {
             Name = playerName;
+            Ability = "";
         }
 
+        private string name = "";
+
         // properties ok...
-        // creates a "getter" and a "setter"
         public string Name
         {
-            get { return name; }
-            set { // TODO: implement Name setter....
+            get { return Name; }
+            set
+            {
+                // check input and test for correct case
+            }
         }
+
+        public string Ability { get; set; }
 
         // method (behavior)
         public void Attack()
