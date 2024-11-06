@@ -146,21 +146,23 @@ namespace MarketCLI
                 }
                 else
                 {
-                    for (int i = 0; i < vendors.Count; i++)
-                    {
-                        Vendor vendor = vendors[i];
-                        string vendorName = String.Format("{0} the {1}", vendor.Name.ToLower(), vendor.Profession.ToLower());
+                    Vendor vendor =
+                        (from v in vendors
+                        where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(input[1]))
+                        select v)
+                        .ToList()[0];
 
-                        if (vendorName.Contains(input[1]))
-                        {
-                            DisplayInventory(vendor.Inventory);
-                        }
-                    }
+                    DisplayInventory(vendor.Inventory);
                 }
 
             }
             else if (input[0] == "buy")
             {
+                Vendor vendor =
+                    (from v in vendors
+                    where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(input[1]))
+                    select v)
+                    .ToList()[0];
 
             }
             else if (input[0] == "quit")
