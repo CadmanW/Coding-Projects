@@ -3,7 +3,6 @@ C:\Users\Cadman Warren\Desktop\Coding-Projects\Class-Projects\Coding-III\C#\2024
 C:\Users\Cadman Warren\Desktop\Coding-Projects\Class-Projects\Coding-III\C#\2024-25-01-02-02\bin\Debug\net8.0-windows\2024-25-01-02-02.runtimeconfig.json
 C:\Users\Cadman Warren\Desktop\Coding-Projects\Class-Projects\Coding-III\C#\2024-25-01-02-02\bin\Debug\net8.0-windows\2024-25-01-02-02.dll
 C:\Users\Cadman Warren\Desktop\Coding-Projects\Class-Projects\Coding-III\C#\2024-25-01-02-02\bin\Debug\net8.0-windows\2024-25-01-02-02.pdb
-C:\Users\Cadman Warren\Desktop\Coding-Projects\Class-Projects\Coding-III\C#\2024-25-01-02-02\obj\Debug\net8.0-windows\_2024_25_01_02_02.EvenOdd.resources
 C:\Users\Cadman Warren\Desktop\Coding-Projects\Class-Projects\Coding-III\C#\2024-25-01-02-02\obj\Debug\net8.0-windows\_2024_25_01_02_02.MainForm.resources
 C:\Users\Cadman Warren\Desktop\Coding-Projects\Class-Projects\Coding-III\C#\2024-25-01-02-02\obj\Debug\net8.0-windows\2024-25-01-02-02.csproj.GenerateResource.cache
 C:\Users\Cadman Warren\Desktop\Coding-Projects\Class-Projects\Coding-III\C#\2024-25-01-02-02\obj\Debug\net8.0-windows\2024-25-01-02-02.GeneratedMSBuildEditorConfig.editorconfig
@@ -16,3 +15,4 @@ C:\Users\Cadman Warren\Desktop\Coding-Projects\Class-Projects\Coding-III\C#\2024
 C:\Users\Cadman Warren\Desktop\Coding-Projects\Class-Projects\Coding-III\C#\2024-25-01-02-02\obj\Debug\net8.0-windows\2024-25-01-02-02.pdb
 C:\Users\Cadman Warren\Desktop\Coding-Projects\Class-Projects\Coding-III\C#\2024-25-01-02-02\obj\Debug\net8.0-windows\2024-25-01-02-02.genruntimeconfig.cache
 C:\Users\Cadman Warren\Desktop\Coding-Projects\Class-Projects\Coding-III\C#\2024-25-01-02-02\obj\Debug\net8.0-windows\ref\2024-25-01-02-02.dll
+C:\Users\Cadman Warren\Desktop\Coding-Projects\Class-Projects\Coding-III\C#\2024-25-01-02-02\obj\Debug\net8.0-windows\_2024_25_01_02_02.EvenOddForm.resources

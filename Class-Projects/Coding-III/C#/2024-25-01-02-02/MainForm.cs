@@ -6,12 +6,15 @@ namespace _2024_25_01_02_02
     {
         public MainForm()
         {
-
+            InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void LaunchEvenOddFormButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("button1 click");
+            EvenOddForm evenOddForm = new EvenOddForm();
+            evenOddForm.Parent = this;
+            evenOddForm.StartPosition = FormStartPosition.CenterParent;
+            evenOddForm.Show();
         }
     }
 }

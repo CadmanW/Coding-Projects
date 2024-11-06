@@ -1,6 +1,6 @@
 ﻿namespace _2024_25_01_02_02
 {
-    partial class EvenOdd
+    partial class EvenOddForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Even_Odd";
+            SuspendLayout();
+            // 
+            // EvenOddForm
+            // 
+            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(578, 344);
+            Name = "EvenOddForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Even_Odd";
+            ResumeLayout(false);
         }
 
         #endregion

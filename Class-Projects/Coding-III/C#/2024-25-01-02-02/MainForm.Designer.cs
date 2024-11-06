@@ -22,36 +22,25 @@
 
         private void InitializeComponent()
         {
-            button1 = new Button();
-            FizzBuzz = new Button();
+            LaunchEvenOddFormButton = new Button();
             SuspendLayout();
             // 
-            // button1
+            // LaunchEvenOddFormButton
             // 
-            button1.Location = new Point(12, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(187, 98);
-            button1.TabIndex = 0;
-            button1.Text = "Even / Odd";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // FizzBuzz
-            // 
-            FizzBuzz.Location = new Point(205, 12);
-            FizzBuzz.Name = "FizzBuzz";
-            FizzBuzz.Size = new Size(187, 98);
-            FizzBuzz.TabIndex = 1;
-            FizzBuzz.Text = "FizzBuzz";
-            FizzBuzz.UseVisualStyleBackColor = true;
+            LaunchEvenOddFormButton.Location = new Point(12, 12);
+            LaunchEvenOddFormButton.Name = "LaunchEvenOddFormButton";
+            LaunchEvenOddFormButton.Size = new Size(233, 59);
+            LaunchEvenOddFormButton.TabIndex = 0;
+            LaunchEvenOddFormButton.Text = "Launch Even Odd Form";
+            LaunchEvenOddFormButton.UseVisualStyleBackColor = true;
+            LaunchEvenOddFormButton.Click += LaunchEvenOddFormButton_Click;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(657, 367);
-            Controls.Add(FizzBuzz);
-            Controls.Add(button1);
+            ClientSize = new Size(578, 344);
+            Controls.Add(LaunchEvenOddFormButton);
             Margin = new Padding(4, 5, 4, 5);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -59,7 +48,6 @@
             ResumeLayout(false);
         }
 
-        private Button button1;
-        private Button FizzBuzz;
+        private Button LaunchEvenOddFormButton;
     }
 }

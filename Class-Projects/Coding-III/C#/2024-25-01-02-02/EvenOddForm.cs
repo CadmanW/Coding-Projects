@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _2024_25_01_02_02
 {
-    public partial class EvenOdd : Form
+    public partial class EvenOddForm : Form
     {
-        public EvenOdd()
+        public EvenOddForm()
         {
             InitializeComponent();
         }
