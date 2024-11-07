@@ -23,6 +23,7 @@
         private void InitializeComponent()
         {
             LaunchEvenOddFormButton = new Button();
+            LaunchFizzBuzzFormButton = new Button();
             SuspendLayout();
             // 
             // LaunchEvenOddFormButton
@@ -35,11 +36,22 @@
             LaunchEvenOddFormButton.UseVisualStyleBackColor = true;
             LaunchEvenOddFormButton.Click += LaunchEvenOddFormButton_Click;
             // 
+            // LaunchFizzBuzzFormButton
+            // 
+            LaunchFizzBuzzFormButton.Location = new Point(12, 77);
+            LaunchFizzBuzzFormButton.Name = "LaunchFizzBuzzFormButton";
+            LaunchFizzBuzzFormButton.Size = new Size(233, 59);
+            LaunchFizzBuzzFormButton.TabIndex = 1;
+            LaunchFizzBuzzFormButton.Text = "Launch FizzBuzz Form";
+            LaunchFizzBuzzFormButton.UseVisualStyleBackColor = true;
+            LaunchFizzBuzzFormButton.Click += LaunchFizzBuzzFormButton_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(578, 344);
+            Controls.Add(LaunchFizzBuzzFormButton);
             Controls.Add(LaunchEvenOddFormButton);
             Margin = new Padding(4, 5, 4, 5);
             Name = "MainForm";
@@ -49,5 +61,6 @@
         }
 
         private Button LaunchEvenOddFormButton;
+        private Button LaunchFizzBuzzFormButton;
     }
 }
