@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MarketCLI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33607112567f5aefe4967742cb4b2034844512ed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bbf17de2dc3845be308fae8431e2cca58cf582c8")]
 [assembly: System.Reflection.AssemblyProductAttribute("MarketCLI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MarketCLI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

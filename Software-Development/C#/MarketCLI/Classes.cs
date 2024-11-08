@@ -1,210 +1,69 @@
-using static MarketCLI.MarketCLI;
-
 namespace Classes
 {
-    /* public class User is used to initialize the user
-       takes 2 arguments: string name, float money */
     public class User(string name, float money)
     {
-        public string Name = name;
-        public float Money = money;
-        public List<Item> Inventory = new List<Item>();
-
-        public void DisplayInventory()
+        // Private variables
+        private string name = name;
+        private List<Item> inventory = new List<Item>()
         {
-            /* Get the max string length of the name and cost from the items */
-            int maxNameLength = 0;
-            int maxCostLength = 0;
-            for (int i = 0; i < this.Inventory.Count; i++)
-            {
-                Item item = this.Inventory[i];
-                int nameLength = item.Name.Length;
-                int costLength = item.Cost.ToString().Length;
+            new Item("money", money)
+        };
 
-                if (nameLength > maxNameLength)
-                {
-                    maxNameLength = nameLength;
-                }
-
-                if (nameLength % 2 == 1)
-                {
-                    maxNameLength++;
-                }
-
-                if (costLength < maxCostLength)
-                {
-                    maxCostLength = costLength;
-                }
-
-                if (costLength % 2 == 1)
-                {
-                    maxCostLength++;
-                }
-            }
-
-            /* Table header */
-            for (int i = 0; i < (maxNameLength + maxCostLength + 11); i++)
-            {
-                Console.Write('-');
-            }
-
-            Console.Write("\n| ");
-            for (int i = 0; i < ((maxNameLength - 4) / 2); i++)
-            {
-                Console.Write(' ');
-            }
-            Console.Write("Item");
-            for (int i = 0; i < ((maxNameLength - 4) / 2); i++)
-            {
-                Console.Write(' ');
-            }
-            Console.Write(" | ");
-            for (int i = 0; i < ((maxCostLength - 4) / 2); i++)
-            {
-                Console.Write(' ');
-            }
-            Console.Write("Cost");
-            for (int i = 0; i < ((maxCostLength - 4) / 2); i++)
-            {
-                Console.Write(' ');
-            }
-            Console.Write(" |\n");
-
-            for (int i = 0; i < (maxNameLength + maxCostLength + 11); i++)
-            {
-                Console.Write('-');
-            }
-
-            /* Table Contents */
-            for (int i = 0; i < this.Inventory.Count; i++)
-            {
-                Item item = this.Inventory[i];
-
-                Console.Write(String.Format("\n| {0}", item.Name));
-                for (int x = 0; x < (maxNameLength - item.Name.Length); x++)
-                {
-                    Console.Write(' ');
-                }
-                Console.Write(String.Format(" | {0}", item.Cost.ToString()));
-                for (int x = 0; x < (maxCostLength - item.Name.Length); x++)
-                {
-                    Console.Write(' ');
-                }
-                Console.Write(" |");
-            }
-
-            Console.Write("\n");
-            for (int i = 0; i < (maxNameLength + maxCostLength + 11); i++)
-            {
-                Console.Write('-');
-            }
-            Console.Write("\n");
+        // Public properties
+        public string Name
+        {
+            get { return name; }
+            private set { name = value; }
         }
+        public List<Item> Inventory
+        {
+            get { return inventory; }
+            private set { inventory = value; }
+        }
+        
     }
 
     public class Item(string name, float cost)
     {
-        public string Name = name;
-        public float Cost = cost;
+        // Private variables
+        private string name = name;
+        private float cost = cost;
+
+        // Public properties
+        public string Name
+        {
+            get { return name; }
+            private set { name = value; }
+        }
+        public float Cost
+        {
+            get { return cost; }
+            private set { cost = value; }
+        }
     }
 
-    /* public class Vendor is the class used when initializing a new vendor in the market that has a name and inventory
-           takes 2 arguments: string name, Dictionary<string, float> inventory */
     public class Vendor(string name, string profession, List<Item> inventory)
     {
-        public string Name = name;
-        public string Profession = profession;
-        public List<Item> Inventory = inventory;
+        // Private variables
+        private string name = name;
+        private string profession = profession;
+        private List<Item> inventory = inventory;
 
-        public void DisplayInventory()
+        // Public properties
+        public string Name
         {
-            /* Get the max string length of the name and cost from the items */
-            int maxNameLength = 0;
-            int maxCostLength = 0;
-            for (int i = 0; i < this.Inventory.Count; i++)
-            {
-                Item item = this.Inventory[i];
-                int nameLength = item.Name.Length;
-                int costLength = item.Cost.ToString().Length;
-
-                if (nameLength > maxNameLength)
-                {
-                    maxNameLength = nameLength;
-                }
-
-                if (nameLength % 2 == 1)
-                {
-                    maxNameLength++;
-                }
-
-                if (costLength < maxCostLength)
-                {
-                    maxCostLength = costLength;
-                }
-
-                if (costLength % 2 == 1)
-                {
-                    maxCostLength++;
-                }
-            }
-
-            /* Table header */
-            for (int i = 0; i < (maxNameLength + maxCostLength + 11); i++)
-            {
-                Console.Write('-');
-            }
-
-            Console.Write("\n| ");
-            for (int i = 0; i < ((maxNameLength - 4) / 2); i++)
-            {
-                Console.Write(' ');
-            }
-            Console.Write("Item");
-            for (int i = 0; i < ((maxNameLength - 4) / 2); i++)
-            {
-                Console.Write(' ');
-            }
-            Console.Write(" | ");
-            for (int i = 0; i < ((maxCostLength - 4) / 2); i++)
-            {
-                Console.Write(' ');
-            }
-            Console.Write("Cost");
-            for (int i = 0; i < ((maxCostLength - 4) / 2); i++)
-            {
-                Console.Write(' ');
-            }
-            Console.Write(" |\n");
-
-            for (int i = 0; i < (maxNameLength + maxCostLength + 11); i++)
-            {
-                Console.Write('-');
-            }
-
-            /* Table Contents */
-            for (int i = 0; i < this.Inventory.Count; i++)
-            {
-                Item item = this.Inventory[i];
-
-                Console.Write(String.Format("\n| {0}", item.Name));
-                for (int x = 0; x < (maxNameLength - item.Name.Length); x++)
-                {
-                    Console.Write(' ');
-                }
-                Console.Write(String.Format(" | {0}", item.Cost.ToString()));
-                for (int x = 0; x < (maxCostLength - item.Name.Length); x++)
-                {
-                    Console.Write(' ');
-                }
-                Console.Write(" |");
-            }
-
-            Console.Write("\n");
-            for (int i = 0; i < (maxNameLength + maxCostLength + 11); i++)
-            {
-                Console.Write('-');
-            }
-            Console.Write("\n");
+            get { return name; }
+            private set { name = value; }
+        }
+        public string Profession
+        {
+            get { return profession; }
+            private set { profession = value; }
+        }
+        public List<Item> Inventory
+        {
+            get { return inventory; }
+            private set { inventory = value; }
         }
     }
 }
