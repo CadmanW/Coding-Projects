@@ -5,22 +5,29 @@
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
+    background-color: #333;
+    margin: 10px;
 }
 
-#box {
-    height: 100px;
-    width: 100px;
-    border: 1px solid black;
-    transition-property: all;
-    transition-duration: 3s;
-    transition-timing-function: cubic-bezier(.87, .25, 0, 1.02)
-}
-
-#box:hover {
-    border-width: 10px;
+#dot {
+    position: absolute;
+    top: 500px;
+    left: 500px;
+    background-color: #a4dded;
+    height: 1.25em;
+    width: 1.25em;
     border-radius: 50%;
-    transform: skewX(25deg);
+    animation-name: movedot;
+    animation-duration: 5s;
+}
+
+@keyframes movedot {
+    0% {
+        transform: translateX(0) rotate(0deg);
+        transform-origin: 0;
+    }
+    100% {
+        transform: translateX(500px) rotate(1080deg);
+        transform-origin: -500px;
+    }
 }

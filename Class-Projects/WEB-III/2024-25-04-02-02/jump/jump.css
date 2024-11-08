@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+}
+
+#jumper {
+    border-color: blue;
+    border-width: 2px;
+    border-style: solid;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation-name: jump;
+    animation-duration: 6s;
+
+}
+
+@keyframes jump {
+    0% {
+        transform: 0;
+    }
+
+    12.5% {
+        bottom: -40px; 
+        transform: scaleY(0.7);           
+    }
+
+    25% {
+        transform: translateY(-100px)
+    }
+}
