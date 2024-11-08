@@ -15,4 +15,28 @@
         <div class="glyph" id="turkey">🦃</div>
         <img alt="maze" src="maze.png">
     </body>
+    <script>
+
+        let i = 0
+        let turkeyX;
+        let turkeyY;
+        let oldX;
+
+        document.querySelector("#turkey").addEventListener("click", (e) => {
+            turkeyX = e.x;
+            turkeyY = e.y;
+            oldX = turkeyX;
+        });
+
+        window.addEventListener("click", (e)=>{
+            let x = e.x;
+            let y = e.y;
+
+            console.log(`${(100 / 41) * 1}% { transform: translate(${e.x - turkeyX}, ${e.y - turkeyY}) scale(${oldX < x ? -1 : 1}, 1)}`);
+
+            oldX = x;
+            i++;
+        });
+
+    </script>
 </html>
