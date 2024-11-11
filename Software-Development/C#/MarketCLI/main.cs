@@ -1,5 +1,6 @@
 ﻿using Classes;
 using System.ComponentModel.Design;
+using System.Diagnostics;
 
 namespace MarketCLI
 {
@@ -128,15 +129,16 @@ namespace MarketCLI
                 > 
                 """);
                 
-            string[] input = Console.ReadLine().ToLower().Trim().Split(' ');
+            string input = Console.ReadLine().ToLower().Trim();
+            string[] splitInput = input.Split(' ');
 
-            if (input[0] == "display" && input[input.Length - 1] == "vendors")
+            if (splitInput[0] == "display" && splitInput[splitInput.Length - 1] == "vendors")
             {
                 DisplayVendors(vendors);
             }
-            else if (input[0] == "display" && input[input.Length - 1] == "inventory")
+            else if (splitInput[0] == "display" && splitInput[splitInput.Length - 1] == "inventory")
             {
-                if (input.Length == 2)
+                if (splitInput.Length == 2)
                 {
                     DisplayInventory(user.Inventory);
                 }
@@ -144,7 +146,7 @@ namespace MarketCLI
                 {
                     Vendor vendor =
                         (from v in vendors
-                        where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(input[1]))
+                        where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(splitInput[1]))
                         select v)
                         .ToList()[0];
 
@@ -152,49 +154,31 @@ namespace MarketCLI
                 }
 
             }
-            else if (input[0] == "buy")
+            else if (splitInput[0] == "buy")
             {
-                string itemName = "";
-                for (int i = 1; i < input.Length; i++)
-                {
-                    if (input[i] != "from")
-                    {
-                        itemName += input[i];
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
+                string itemName = input.Split("from")[0][3..].Trim();
+                string vendorName = input.Split("from")[1].Trim();
 
-                string vendorName = "";
-                for (int i = 0; i < input.Length; i--)
-                {
-                    if (input[i] != "from")
-                    {
-                        vendorName += input[i];
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
+                Vendor vendor =
+                        (from v in vendors
+                         where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(vendorName))
+                         select v)
+                         .ToList()[0];
+
+                //Item item =
+                //    (from i in vendor.Inventory
+                //     where i.Name.Contains(itemName)
+                //     select i)
+                //     .ToList()[0];
+
+                Debug.WriteLine(itemName);
+                Console.WriteLine(vendor);
+                DisplayInventory(vendor.Inventory);
                 
 
-
-                Console.WriteLine(itemName);
-
-                List<Vendor> vendor =
-                    (from v in vendors
-                     where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(vendorName))
-                     select v)
-                    .ToList();
-
-                List<Item>
-
-
+                //Console.WriteLine(item);
             }
-            else if (input[0] == "quit")
+            else if (splitInput[0] == "quit")
             {
                 return false;
             }
@@ -217,25 +201,10 @@ namespace MarketCLI
                 int nameLength = item.Name.Length;
                 int costLength = item.Cost.ToString().Length;
 
-                if (nameLength > maxNameLength)
-                {
-                    maxNameLength = nameLength;
-                }
-
-                if (nameLength % 2 == 1)
-                {
-                    maxNameLength++;
-                }
-
-                if (costLength < maxCostLength)
-                {
-                    maxCostLength = costLength;
-                }
-
-                if (costLength % 2 == 1)
-                {
-                    maxCostLength++;
-                }
+                if (nameLength > maxNameLength) { maxNameLength = nameLength; }
+                if (nameLength % 2 == 1)        { maxNameLength++; }
+                if (costLength < maxCostLength) { maxCostLength = costLength; }
+                if (costLength % 2 == 1)        { maxCostLength++; }
             }
 
             /* Table header */
