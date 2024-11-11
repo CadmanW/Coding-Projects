@@ -1,4 +1,5 @@
 ﻿using Classes;
+using System.ComponentModel.Design;
 
 namespace MarketCLI
 {
@@ -29,14 +30,13 @@ namespace MarketCLI
 
 
 
-
         // static method InitUser initializes the user
         // takes 0 arguments
         // returns an instance of the User class
         public static User InitUser()
         {
             Console.WriteLine("What's your name? ");
-            string name = Console.ReadLine();
+            string? name = Console.ReadLine();
             if (name == null)
             {
                 name = "Guest";
@@ -154,22 +154,44 @@ namespace MarketCLI
             }
             else if (input[0] == "buy")
             {
-                string parsedInput = "";
-
-                for (int i = 1; i < input.Length - 1; i++)
+                string itemName = "";
+                for (int i = 1; i < input.Length; i++)
                 {
-                    parsedInput += input[i] + " ";
+                    if (input[i] != "from")
+                    {
+                        itemName += input[i];
+                    }
+                    else
+                    {
+                        break;
+                    }
                 }
 
-                Console.WriteLine(parsedInput);
+                string vendorName = "";
+                for (int i = 0; i < input.Length; i--)
+                {
+                    if (input[i] != "from")
+                    {
+                        vendorName += input[i];
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                
+
+
+                Console.WriteLine(itemName);
 
                 List<Vendor> vendor =
                     (from v in vendors
-                     where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(parsedInput))
+                     where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(vendorName))
                      select v)
                     .ToList();
 
-                Console.WriteLine(vendor[0]);
+                List<Item>
+
 
             }
             else if (input[0] == "quit")
