@@ -54,9 +54,7 @@ namespace MarketCLI
 
             vendors.Add(new Vendor(
                 "Jerry",
-
                 "Farmer",
-
                 new List<Item>
                 {
                     new Item("Apple", 1.19f),
@@ -68,9 +66,7 @@ namespace MarketCLI
 
             vendors.Add(new Vendor(
                 "Kenzie",
-
                 "Potter",
-
                 new List<Item>
                 {
                     new Item("bowl", 9.99f),
@@ -158,11 +154,22 @@ namespace MarketCLI
             }
             else if (input[0] == "buy")
             {
-                Vendor vendor =
+                string parsedInput = "";
+
+                for (int i = 1; i < input.Length - 1; i++)
+                {
+                    parsedInput += input[i] + " ";
+                }
+
+                Console.WriteLine(parsedInput);
+
+                List<Vendor> vendor =
                     (from v in vendors
-                    where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(input[1]))
-                    select v)
-                    .ToList()[0];
+                     where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(parsedInput))
+                     select v)
+                    .ToList();
+
+                Console.WriteLine(vendor[0]);
 
             }
             else if (input[0] == "quit")
