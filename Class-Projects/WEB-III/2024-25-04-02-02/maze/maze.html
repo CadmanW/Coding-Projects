@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>animaztion</title>
+        <title>animation</title>
         <link rel="stylesheet" href="maze.css">
     </head>
     <body>
@@ -32,7 +32,7 @@
             let x = e.x;
             let y = e.y;
 
-            console.log(`${(100 / 41) * 1}% { transform: translate(${e.x - turkeyX}, ${e.y - turkeyY}) scale(${oldX < x ? -1 : 1}, 1)}`);
+            console.log(`${(100 / 41) * i}% { transform: translate(${e.x - turkeyX}px, ${e.y - turkeyY}px) scale(${oldX < x ? -1 : 1}, 1)}`);
 
             oldX = x;
             i++;
