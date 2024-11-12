@@ -184,11 +184,7 @@ namespace MarketCLI
                          select i)
                          .ToList()[0];
 
-                    vendor.Inventory.Items.Remove(item);
-                    vendor.Inventory.Items[0].Cost += item.Cost;
-                    user.Inventory.Items.Add(item);
-
-
+                    user.Buy(item, vendor);
                 }
                 else if (splitInput[0] == "quit")
                 {
