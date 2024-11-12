@@ -1,5 +1,63 @@
 namespace Classes
 {
+    public class User(string name, Inventory inventory)
+    {
+        // Private variables
+        private string _name = name;
+        private Inventory _inventory = inventory;
+
+
+        // Public properties
+        public string Name
+        {
+            get { return _name; }
+            private set { _name = value; }
+        }
+
+        public Inventory Inventory
+        {
+            get { return _inventory; }
+            private set { _inventory = value; }
+        }
+
+        public override string ToString()
+        {
+            return _name;
+        }
+    }
+
+    public class Vendor(string name, string profession, Inventory inventory)
+    {
+        // Private variables
+        private string _name = name;
+        private string _profession = profession;
+        private Inventory _inventory = inventory;
+
+        // Public properties
+        public string Name
+        {
+            get { return _name; }
+            private set { _name = value; }
+        }
+
+        public string Profession
+        {
+            get { return _profession; }
+            private set { _profession = value; }
+        }
+
+        public Inventory Inventory
+        {
+            get { return _inventory; }
+            private set { _inventory = value; }
+        }
+
+        public override string ToString()
+        {
+            return String.Format("name: {0} profession: {1}", _name, _profession);
+        }
+    }
+
     public class Inventory(List<Item> items)
     {
         // Private variables
@@ -12,7 +70,13 @@ namespace Classes
             private set { _items = value; }
         }
 
-        public override string ToString()
+        public void Buy(Item item)
+        {
+            _items.Add(item);
+            Console.Write(_items[0].Cost);
+        }
+
+        public void Display()
         {
             Console.WriteLine();
             /* Get the max string length of the name and cost from the items */
@@ -102,43 +166,11 @@ namespace Classes
                 Console.Write('-');
             }
             Console.Write("\n\n");
-
-            return "";
-        }
-    }
-
-    public class User(string name, Inventory inventory)
-    {
-        // Private variables
-        private string _name = name;
-        private Inventory _inventory = inventory;
-
-
-        // Public properties
-        public string Name
-        {
-            get { return _name; }
-            private set { _name = value; }
-        }
-
-        public Inventory Inventory
-        {
-            get { return _inventory; }
-            private set { _inventory = value; }
-        }
-
-        public override string ToString()
-        {
-            return _name;
         }
     }
 
     public class Item(string name, float cost)
     {
-        // Private variables
-        private string name = name;
-        private float cost = cost;
-
         // Public properties
         public string Name
         {
@@ -148,44 +180,12 @@ namespace Classes
         public float Cost
         {
             get { return cost; }
-            private set { cost = value; }
+            private protected set { cost = value; }
         }
 
         public override string ToString()
         {
-            return String.Format("name: {0} cost: {1}", name, cost);
-        }
-    }
-
-    public class Vendor(string name, string profession, Inventory inventory)
-    {
-        // Private variables
-        private string _name = name;
-        private string _profession = profession;
-        private Inventory _inventory = inventory;
-
-        // Public properties
-        public string Name
-        {
-            get { return _name; }
-            private set { _name = value; }
-        }
-
-        public string Profession
-        {
-            get { return _profession; }
-            private set { _profession = value; }
-        }
-
-        public Inventory Inventory
-        {
-            get { return _inventory; }
-            private set { _inventory = value; }
-        }
-
-        public override string ToString()
-        {
-            return String.Format("name: {0} profession: {1}", _name, _profession);
+            return name;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Classes;
+using System.Diagnostics;
 
 namespace MarketCLI
 {
@@ -42,7 +43,10 @@ namespace MarketCLI
                 name = "Guest";
             };
 
-            return new User(name, new Inventory(List<Item>("money", 1000.00);
+            return new User(name, new Inventory(new List<Item> 
+            {
+                new Item("money", 1000.00f)
+            }));
         }
 
         // static method InitVendors initializes the vendors
@@ -57,13 +61,14 @@ namespace MarketCLI
 
                 "Farmer",
 
-                new List<Item>
+                new Inventory(new List<Item>
                 {
+                    new Item("Money", 1000.00f),
                     new Item("Apple", 1.19f),
                     new Item("Potato", 0.79f),
                     new Item("Beetroot", 0.69f),
                     new Item("Loaf of Bread", 4.99f)
-                }
+                })
             ));
 
             vendors.Add(new Vendor(
@@ -71,12 +76,13 @@ namespace MarketCLI
 
                 "Potter",
 
-                new List<Item>
+                new Inventory(new List<Item>
                 {
+                    new Item("Money", 1000.00f),
                     new Item("bowl", 9.99f),
                     new Item("mug", 3.99f),
                     new Item("plate", 8.99f)
-                }
+                })
             ));
 
             return vendors;
@@ -146,7 +152,7 @@ namespace MarketCLI
                 {
                     if (splitInput.Length == 2)
                     {
-                        DisplayInventory(user.Inventory);
+                        user.Inventory.Display();
                     }
                     else
                     {
@@ -156,23 +162,32 @@ namespace MarketCLI
                             select v)
                             .ToList()[0];
 
-                        DisplayInventory(vendor.Inventory);
+                        vendor.Inventory.Display();
                     }
 
                 }
                 else if (splitInput[0] == "buy")
                 {
-                    string itemName = input.Split("from")[0];
-                    string vendorName = input.Split("from")[1];
-
-                    Console.WriteLine(itemName, vendorName);
+                    string itemName = input.Split("from")[0][3..].Trim();
+                    string vendorName = input.Split("from")[1].Trim();
 
 
-                    //Vendor vendor =
-                    //    (from v in vendors
-                    //    where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(vendorName))
-                    //    select v)
-                    //    .ToList()[0];
+                    Vendor vendor =
+                        (from v in vendors
+                         where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(vendorName))
+                         select v)
+                        .ToList()[0];
+
+                    Item item =
+                        (from i in vendor.Inventory.Items
+                         where i.Name.ToLower().Contains(itemName)
+                         select i)
+                         .ToList()[0];
+
+                    vendor.Inventory.Items.Remove(item);
+                    vendor.Inventory.Items[0].Cost += item.Cost;
+                    user.Inventory.Items.Add(item);
+
 
                 }
                 else if (splitInput[0] == "quit")
