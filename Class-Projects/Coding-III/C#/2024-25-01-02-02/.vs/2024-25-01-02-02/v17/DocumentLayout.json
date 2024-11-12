@@ -7,8 +7,8 @@
       "RelativeMoniker": "D:0:0:{6556DAB0-EFBD-4FDA-8989-83337F3CF21E}|2024-25-01-02-02.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6556DAB0-EFBD-4FDA-8989-83337F3CF21E}|2024-25-01-02-02.csproj|c:\\users\\cadman warren\\desktop\\coding-projects\\class-projects\\coding-iii\\c#\\2024-25-01-02-02\\mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6556DAB0-EFBD-4FDA-8989-83337F3CF21E}|2024-25-01-02-02.csproj|solutionrelative:mainform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6556DAB0-EFBD-4FDA-8989-83337F3CF21E}|2024-25-01-02-02.csproj|C:\\Users\\Cadman Warren\\Desktop\\Coding-Projects\\Class-Projects\\Coding-III\\C#\\2024-25-01-02-02\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6556DAB0-EFBD-4FDA-8989-83337F3CF21E}|2024-25-01-02-02.csproj|solutionrelative:mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,21 +18,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Cadman Warren\\Desktop\\Coding-Projects\\Class-Projects\\Coding-III\\C#\\2024-25-01-02-02\\MainForm.Designer.cs",
-              "RelativeDocumentMoniker": "MainForm.Designer.cs",
-              "ToolTip": "C:\\Users\\Cadman Warren\\Desktop\\Coding-Projects\\Class-Projects\\Coding-III\\C#\\2024-25-01-02-02\\MainForm.Designer.cs",
-              "RelativeToolTip": "MainForm.Designer.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwD8AAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T15:17:53.846Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -41,10 +28,21 @@
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "C:\\Users\\Cadman Warren\\Desktop\\Coding-Projects\\Class-Projects\\Coding-III\\C#\\2024-25-01-02-02\\MainForm.cs",
               "RelativeToolTip": "MainForm.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAgwD4AAAA7AAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA1wDYAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T14:18:42.558Z",
+              "WhenOpened": "2024-11-11T14:14:34.647Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Cadman Warren\\Desktop\\Coding-Projects\\Class-Projects\\Coding-III\\C#\\2024-25-01-02-02\\MainForm.cs",
+              "RelativeDocumentMoniker": "MainForm.cs",
+              "ToolTip": "C:\\Users\\Cadman Warren\\Desktop\\Coding-Projects\\Class-Projects\\Coding-III\\C#\\2024-25-01-02-02\\MainForm.cs [Design]",
+              "RelativeToolTip": "MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-11T14:12:55.359Z"
             }
           ]
         }

@@ -132,15 +132,16 @@ namespace MarketCLI
                 > 
                 """);
                 
-            string[] input = Console.ReadLine().ToLower().Trim().Split(' ');
+            string input = Console.ReadLine().ToLower().Trim();
+            string[] splitInput = input.Split(' ');
 
-            if (input[0] == "display" && input[input.Length - 1] == "vendors")
+            if (splitInput[0] == "display" && splitInput[splitInput.Length - 1] == "vendors")
             {
                 DisplayVendors(vendors);
             }
-            else if (input[0] == "display" && input[input.Length - 1] == "inventory")
+            else if (splitInput[0] == "display" && splitInput[splitInput.Length - 1] == "inventory")
             {
-                if (input.Length == 2)
+                if (splitInput.Length == 2)
                 {
                     DisplayInventory(user.Inventory);
                 }
@@ -148,7 +149,7 @@ namespace MarketCLI
                 {
                     Vendor vendor =
                         (from v in vendors
-                        where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(input[1]))
+                        where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(splitInput[1]))
                         select v)
                         .ToList()[0];
 
@@ -156,8 +157,16 @@ namespace MarketCLI
                 }
 
             }
-            else if (input[0] == "buy")
+            else if (splitInput[0] == "buy")
             {
+                string[] splitString = input.Split("from");
+                string[] itemName
+
+                foreach (var str in splitString[1..])
+                {
+                    Console.WriteLine(str);
+                }
+
                 Vendor vendor =
                     (from v in vendors
                     where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(input[1]))
@@ -165,7 +174,7 @@ namespace MarketCLI
                     .ToList()[0];
 
             }
-            else if (input[0] == "quit")
+            else if (splitInput[0] == "quit")
             {
                 return false;
             }

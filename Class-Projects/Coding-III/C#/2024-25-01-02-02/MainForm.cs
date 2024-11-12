@@ -17,50 +17,49 @@ namespace _2024_25_01_02_02
             evenOddForm.ShowDialog(this);
         }
 
-        private Form fizzBuzzForm;
-        private Label NumberLabel;
-        private TextBox NumberTextBox;
-        private Button RunButton;
-        private Label ResultLabel;
-
         private void LaunchFizzBuzzFormButton_Click(object sender, EventArgs e)
         {
             // create a new form
-            fizzBuzzForm = new Form();
+            Form fizzBuzzForm = new Form();
             fizzBuzzForm.Text = "FizzBuzz";
             fizzBuzzForm.StartPosition = FormStartPosition.CenterParent;
 
             // Create the number label and add it to the form
-            Label NumberLabel = new Label();
-            NumberLabel.Text = "Number: ";
-            NumberLabel.Size = new Size(60, NumberLabel.Size.Height);
-            fizzBuzzForm.Controls.Add(NumberLabel);
+            Label numberLabel = new Label();
+            numberLabel.Text = "Number: ";
+            numberLabel.Size = new Size(60, numberLabel.Size.Height);
+            fizzBuzzForm.Controls.Add(numberLabel);
 
             // create the textbox and add it to the form
-            NumberTextBox = new TextBox();
-            NumberTextBox.Location = new Point(60, 0);
-            fizzBuzzForm.Controls.Add(NumberTextBox);
+            TextBox numberTextBox = new TextBox();
+            numberTextBox.Location = new Point(60, 0);
+            fizzBuzzForm.Controls.Add(numberTextBox);
 
             // create the button and add it to the form
-            RunButton = new Button();
-            RunButton.Text = "Run";
-            fizzBuzzForm.Controls.Add(RunButton);
-            RunButton.Location = new Point(NumberLabel.Width + NumberTextBox.Width, 0);
-            RunButton.Click += RunButton_Click;
+            Button runButton = new Button();
+            runButton.Text = "Run";
+            fizzBuzzForm.Controls.Add(runButton);
+            runButton.Location = new Point(numberLabel.Width + numberTextBox.Width, 0);
+            runButton.Click += RunButton_Click;
 
             // create the result label and add it to the form
-            ResultLabel = new Label();
-            ResultLabel.Text = "THIS_WILL_POPULATE_DYNAMICALLY";
-            ResultLabel.Location = new Point(0, NumberTextBox.Size.Height);
-            fizzBuzzForm.Controls.Add(ResultLabel);
+            Label resultLabel = new Label();
+            resultLabel.Text = "THIS_WILL_POPULATE_DYNAMICALLY";
+            resultLabel.Location = new Point(0, numberTextBox.Size.Height);
+            fizzBuzzForm.Controls.Add(resultLabel);
 
             // Show the form
             fizzBuzzForm.ShowDialog(this);
         }
 
-        private void RunButton_Click(object sender, EventArgs e)
+        private void RunButton_Click(object? sender, EventArgs e)
         {
-            // fizz buzz algorithm, then update reult label
+            Button? runButton = sender as Button;
+            if (runButton != null)
+            {
+                MessageBox.Show("We have the run button");
+                MessageBox.Show(runButton.Text);
+            }
         }
     }
 }

@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\cadma\\Desktop\\GitHub\\Coding-Projects\\Software-Development\\C#\\MarketCLI\\",
+  "WorkspaceRootPath": "C:\\Users\\Cadman Warren\\Desktop\\Coding-Projects\\Software-Development\\C#\\MarketCLI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1D1C9043-ADB8-45AE-9615-A28ED4704EA5}|MarketCLI.csproj|c:\\users\\cadma\\desktop\\github\\coding-projects\\software-development\\c#\\marketcli\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1D1C9043-ADB8-45AE-9615-A28ED4704EA5}|MarketCLI.csproj|c:\\users\\cadman warren\\desktop\\coding-projects\\software-development\\c#\\marketcli\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D1C9043-ADB8-45AE-9615-A28ED4704EA5}|MarketCLI.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D1C9043-ADB8-45AE-9615-A28ED4704EA5}|MarketCLI.csproj|c:\\users\\cadma\\desktop\\github\\coding-projects\\software-development\\c#\\marketcli\\classes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1D1C9043-ADB8-45AE-9615-A28ED4704EA5}|MarketCLI.csproj|c:\\users\\cadman warren\\desktop\\coding-projects\\software-development\\c#\\marketcli\\classes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1D1C9043-ADB8-45AE-9615-A28ED4704EA5}|MarketCLI.csproj|solutionrelative:classes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -23,12 +23,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Main.cs",
-              "DocumentMoniker": "C:\\Users\\cadma\\Desktop\\GitHub\\Coding-Projects\\Software-Development\\C#\\MarketCLI\\Main.cs",
-              "RelativeDocumentMoniker": "Main.cs",
-              "ToolTip": "C:\\Users\\cadma\\Desktop\\GitHub\\Coding-Projects\\Software-Development\\C#\\MarketCLI\\Main.cs",
-              "RelativeToolTip": "Main.cs",
-              "ViewState": "AgIAAI0AAAAAAAAAAAAAAJkAAAAAAAAAAAAAAA==",
+              "Title": "main.cs",
+              "DocumentMoniker": "C:\\Users\\Cadman Warren\\Desktop\\Coding-Projects\\Software-Development\\C#\\MarketCLI\\main.cs",
+              "RelativeDocumentMoniker": "main.cs",
+              "ToolTip": "C:\\Users\\Cadman Warren\\Desktop\\Coding-Projects\\Software-Development\\C#\\MarketCLI\\main.cs",
+              "RelativeToolTip": "main.cs",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAAKUAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T13:22:44.508Z",
               "IsPinned": true,
@@ -38,9 +38,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Classes.cs",
-              "DocumentMoniker": "C:\\Users\\cadma\\Desktop\\GitHub\\Coding-Projects\\Software-Development\\C#\\MarketCLI\\Classes.cs",
+              "DocumentMoniker": "C:\\Users\\Cadman Warren\\Desktop\\Coding-Projects\\Software-Development\\C#\\MarketCLI\\Classes.cs",
               "RelativeDocumentMoniker": "Classes.cs",
-              "ToolTip": "C:\\Users\\cadma\\Desktop\\GitHub\\Coding-Projects\\Software-Development\\C#\\MarketCLI\\Classes.cs",
+              "ToolTip": "C:\\Users\\Cadman Warren\\Desktop\\Coding-Projects\\Software-Development\\C#\\MarketCLI\\Classes.cs",
               "RelativeToolTip": "Classes.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
