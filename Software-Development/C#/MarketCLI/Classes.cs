@@ -1,5 +1,7 @@
 namespace Classes
 {
+    public class Inventory(List<Item> items)
+
     public class User(string name, float money)
     {
         // Private variables
