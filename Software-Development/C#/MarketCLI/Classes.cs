@@ -1,5 +1,7 @@
 namespace Classes
 {
+    public class Inventory(List<Item> items)
+
     public class User(string name, float money)
     {
         // Private variables
@@ -9,18 +11,24 @@ namespace Classes
             new Item("money", money)
         };
 
+
         // Public properties
         public string Name
         {
             get { return name; }
             private set { name = value; }
         }
+
         public List<Item> Inventory
         {
             get { return inventory; }
             private set { inventory = value; }
         }
-        
+
+        public override string ToString()
+        {
+            return name;
+        }
     }
 
     public class Item(string name, float cost)
@@ -40,6 +48,11 @@ namespace Classes
             get { return cost; }
             private set { cost = value; }
         }
+
+        public override string ToString()
+        {
+            return String.Format("name: {0} cost: {1}", name, cost);
+        }
     }
 
     public class Vendor(string name, string profession, List<Item> inventory)
@@ -55,15 +68,22 @@ namespace Classes
             get { return name; }
             private set { name = value; }
         }
+
         public string Profession
         {
             get { return profession; }
             private set { profession = value; }
         }
+
         public List<Item> Inventory
         {
             get { return inventory; }
             private set { inventory = value; }
+        }
+
+        public override string ToString()
+        {
+            return String.Format("name: {0} profession: {1}", name, profession);
         }
     }
 }
