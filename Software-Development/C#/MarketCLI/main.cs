@@ -36,13 +36,13 @@ namespace MarketCLI
         public static User InitUser()
         {
             Console.WriteLine("What's your name? ");
-            string name = Console.ReadLine();
+            string? name = Console.ReadLine();
             if (name == null)
             {
                 name = "Guest";
-            }
+            };
 
-            return new User(name, 1000.00f);
+            return new User(name, new Inventory(List<Item>("money", 1000.00);
         }
 
         // static method InitVendors initializes the vendors
@@ -132,150 +132,55 @@ namespace MarketCLI
                 > 
                 """);
                 
-            string input = Console.ReadLine().ToLower().Trim();
-            string[] splitInput = input.Split(' ');
+            string? input = Console.ReadLine().ToLower().Trim();
 
-            if (splitInput[0] == "display" && splitInput[splitInput.Length - 1] == "vendors")
+            if (input != null)
             {
-                DisplayVendors(vendors);
-            }
-            else if (splitInput[0] == "display" && splitInput[splitInput.Length - 1] == "inventory")
-            {
-                if (splitInput.Length == 2)
+                string[] splitInput = input.Split(' ');
+
+                if (splitInput[0] == "display" && splitInput[splitInput.Length - 1] == "vendors")
                 {
-                    DisplayInventory(user.Inventory);
+                    DisplayVendors(vendors);
                 }
-                else
+                else if (splitInput[0] == "display" && splitInput[splitInput.Length - 1] == "inventory")
                 {
-                    Vendor vendor =
-                        (from v in vendors
-                        where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(splitInput[1]))
-                        select v)
-                        .ToList()[0];
+                    if (splitInput.Length == 2)
+                    {
+                        DisplayInventory(user.Inventory);
+                    }
+                    else
+                    {
+                        Vendor vendor =
+                            (from v in vendors
+                            where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(splitInput[1]))
+                            select v)
+                            .ToList()[0];
 
-                    DisplayInventory(vendor.Inventory);
+                        DisplayInventory(vendor.Inventory);
+                    }
+
                 }
-
-            }
-            else if (splitInput[0] == "buy")
-            {
-                string[] splitString = input.Split("from");
-                string[] itemName
-
-                foreach (var str in splitString[1..])
+                else if (splitInput[0] == "buy")
                 {
-                    Console.WriteLine(str);
+                    string itemName = input.Split("from")[0];
+                    string vendorName = input.Split("from")[1];
+
+                    Console.WriteLine(itemName, vendorName);
+
+
+                    //Vendor vendor =
+                    //    (from v in vendors
+                    //    where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(vendorName))
+                    //    select v)
+                    //    .ToList()[0];
+
                 }
-
-                Vendor vendor =
-                    (from v in vendors
-                    where (String.Format("{0} the {1}", v.Name.ToLower(), v.Profession.ToLower()).Contains(input[1]))
-                    select v)
-                    .ToList()[0];
-
+                else if (splitInput[0] == "quit")
+                {
+                    return false;
+                }
             }
-            else if (splitInput[0] == "quit")
-            {
-                return false;
-            }
-
             return true;
-        }
-
-        // static method DisplayInventory displays the inventory passed into it
-        // takes 1 argument: List<Item>
-        // returns nothing
-        public static void DisplayInventory(List<Item> inventory)
-        {
-            Console.WriteLine();
-            /* Get the max string length of the name and cost from the items */
-            int maxNameLength = 0;
-            int maxCostLength = 0;
-            for (int i = 0; i < inventory.Count; i++)
-            {
-                Item item = inventory[i];
-                int nameLength = item.Name.Length;
-                int costLength = item.Cost.ToString().Length;
-
-                if (nameLength > maxNameLength)
-                {
-                    maxNameLength = nameLength;
-                }
-
-                if (nameLength % 2 == 1)
-                {
-                    maxNameLength++;
-                }
-
-                if (costLength < maxCostLength)
-                {
-                    maxCostLength = costLength;
-                }
-
-                if (costLength % 2 == 1)
-                {
-                    maxCostLength++;
-                }
-            }
-
-            /* Table header */
-            for (int i = 0; i < (maxNameLength + maxCostLength + 11); i++)
-            {
-                Console.Write('-');
-            }
-
-            Console.Write("\n| ");
-            for (int i = 0; i < ((maxNameLength - 4) / 2); i++)
-            {
-                Console.Write(' ');
-            }
-            Console.Write("Item");
-            for (int i = 0; i < ((maxNameLength - 4) / 2); i++)
-            {
-                Console.Write(' ');
-            }
-            Console.Write(" | ");
-            for (int i = 0; i < ((maxCostLength - 4) / 2); i++)
-            {
-                Console.Write(' ');
-            }
-            Console.Write("Cost");
-            for (int i = 0; i < ((maxCostLength - 4) / 2); i++)
-            {
-                Console.Write(' ');
-            }
-            Console.Write(" |\n");
-
-            for (int i = 0; i < (maxNameLength + maxCostLength + 11); i++)
-            {
-                Console.Write('-');
-            }
-
-            /* Table Contents */
-            for (int i = 0; i < inventory.Count; i++)
-            {
-                Item item = inventory[i];
-
-                Console.Write(String.Format("\n| {0}", item.Name));
-                for (int x = 0; x < (maxNameLength - item.Name.Length); x++)
-                {
-                    Console.Write(' ');
-                }
-                Console.Write(String.Format(" | {0}", item.Cost.ToString()));
-                for (int x = 0; x < (maxCostLength - item.Name.Length); x++)
-                {
-                    Console.Write(' ');
-                }
-                Console.Write(" |");
-            }
-
-            Console.Write("\n");
-            for (int i = 0; i < (maxNameLength + maxCostLength + 11); i++)
-            {
-                Console.Write('-');
-            }
-            Console.Write("\n\n");
-            
         }
     }
 }

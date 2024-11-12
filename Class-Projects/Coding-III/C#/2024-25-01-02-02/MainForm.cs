@@ -57,8 +57,23 @@ namespace _2024_25_01_02_02
             Button? runButton = sender as Button;
             if (runButton != null)
             {
-                MessageBox.Show("We have the run button");
-                MessageBox.Show(runButton.Text);
+                Form? fizzBuzzForm = runButton.Parent as Form;
+                if (fizzBuzzForm != null)
+                {
+                    TextBox? numberTextBox = fizzBuzzForm.Controls[1] as TextBox;
+                    if (numberTextBox != null)
+                    {
+                        string strNumber = numberTextBox.Text;
+                        try
+                        {
+                            int number = int.Parse(strNumber);
+                        }
+                        catch (Exception err)
+                        {
+                            Debug.WriteLine(err);
+                        }
+                    }
+                }
             }
         }
     }
