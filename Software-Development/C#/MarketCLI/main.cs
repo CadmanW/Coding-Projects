@@ -128,6 +128,7 @@ namespace MarketCLI
         public static bool GameLoop(User user, List<Vendor> vendors)
         {
             Console.Write("""
+
                 What would you like to do?
                 - display vendors,
                 - display inventory,
