@@ -24,6 +24,20 @@ namespace Classes
         {
             return _name;
         }
+
+        // Public Methods
+        public void Buy(Item item, Vendor vendor)
+        {
+            Inventory.Items[0].Cost -= item.Cost;
+            Inventory.Items.Add(item);
+
+            vendor.Inventory.Items[0].Cost += item.Cost;
+            vendor.Inventory.Items.Remove(item);
+
+            Console.WriteLine(String.Format("{0} bought {1} from {2} for {3}$", Name, item.Name, vendor, item.Cost));
+            Console.WriteLine(String.Format("{0} has {1}$ left", Name, Inventory.Items[0].Cost));
+            Console.WriteLine(String.Format("{0} now has {1}$"), vendor.Name, vendor.Inventory.Items[0].Cost);
+        }
     }
 
     public class Vendor(string name, string profession, Inventory inventory)
@@ -68,12 +82,6 @@ namespace Classes
         {
             get { return _items; }
             private set { _items = value; }
-        }
-
-        public void Buy(Item item)
-        {
-            _items.Add(item);
-            Console.Write(_items[0].Cost);
         }
 
         public void Display()
@@ -171,16 +179,20 @@ namespace Classes
 
     public class Item(string name, float cost)
     {
+        // Private variables
+        private string _name = name;
+        private float _cost = cost;
+
         // Public properties
         public string Name
         {
-            get { return name; }
-            private set { name = value; }
+            get { return _name; }
+            private set { _name = value; }
         }
         public float Cost
         {
-            get { return cost; }
-            private protected set { cost = value; }
+            get { return _cost; }
+            internal set { _cost = value; }
         }
 
         public override string ToString()

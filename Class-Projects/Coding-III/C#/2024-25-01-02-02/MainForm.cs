@@ -66,11 +66,19 @@ namespace _2024_25_01_02_02
                         string strNumber = numberTextBox.Text;
                         try
                         {
-                            int number = int.Parse(strNumber);
+                            string[] input = strNumber.Trim().Split(" ");
+                            string min = input[0];
+                            string max = input[1];
                         }
-                        catch (Exception err)
+                        catch (FormatException fe)
                         {
-                            Debug.WriteLine(err);
+                            MessageBox.Show("nice try, moron!");
+                            Debug.WriteLine(fe);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                            Debug.WriteLine(ex);
                         }
                     }
                 }
