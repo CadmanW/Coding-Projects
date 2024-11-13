@@ -18,3 +18,13 @@ C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\
 C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\MarketCLI.pdb
 C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\MarketCLI.genruntimeconfig.cache
 C:\Users\cadma\Desktop\GitHub\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\ref\MarketCLI.dll
+C:\Users\Cadman Warren\Desktop\Coding-Projects\Software-Development\C#\MarketCLI\bin\Debug\net8.0\MarketCLI.exe
+C:\Users\Cadman Warren\Desktop\Coding-Projects\Software-Development\C#\MarketCLI\bin\Debug\net8.0\MarketCLI.deps.json
+C:\Users\Cadman Warren\Desktop\Coding-Projects\Software-Development\C#\MarketCLI\bin\Debug\net8.0\MarketCLI.runtimeconfig.json
+C:\Users\Cadman Warren\Desktop\Coding-Projects\Software-Development\C#\MarketCLI\bin\Debug\net8.0\MarketCLI.dll
+C:\Users\Cadman Warren\Desktop\Coding-Projects\Software-Development\C#\MarketCLI\bin\Debug\net8.0\MarketCLI.pdb
+C:\Users\Cadman Warren\Desktop\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\MarketCLI.dll
+C:\Users\Cadman Warren\Desktop\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\refint\MarketCLI.dll
+C:\Users\Cadman Warren\Desktop\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\MarketCLI.pdb
+C:\Users\Cadman Warren\Desktop\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\MarketCLI.genruntimeconfig.cache
+C:\Users\Cadman Warren\Desktop\Coding-Projects\Software-Development\C#\MarketCLI\obj\Debug\net8.0\ref\MarketCLI.dll

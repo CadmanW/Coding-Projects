@@ -36,7 +36,7 @@ namespace Classes
 
             Console.WriteLine(String.Format("{0} bought {1} from {2} for {3}$", Name, item.Name, vendor, item.Cost));
             Console.WriteLine(String.Format("{0} has {1}$ left", Name, Inventory.Items[0].Cost));
-            Console.WriteLine(String.Format("{0} now has {1}$"), vendor, vendor.Inventory.Items[0].Cost);
+            Console.WriteLine(String.Format("{0} now has {1}$"), vendor.Name, vendor.Inventory.Items[0].Cost);
         }
     }
 
