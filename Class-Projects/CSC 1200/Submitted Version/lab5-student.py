@@ -15,11 +15,10 @@ def welcome():
 
 
 def attack(pokemon_atk, pokemon_def, crit_multiplier=1):
-# IMPORTANT: Modify the below to use the dictionaries passed
-damage = calcDamage(pokemon_atk_ap, crit_multiplier)
-pokemon_def_hp = applyDamage(pokemon_def_hp, damage)
-printOutcome(pokemon_atk_name, pokemon_def_name, damage,
-pokemon_def_hp)
+    damage = calcDamage(pokemon_atk_ap, crit_multiplier)
+    pokemon_def_hp = applyDamage(pokemon_def_hp, damage)
+    printOutcome(pokemon_atk_name, pokemon_def_name, damage,
+    pokemon_def_hp)
 
 def calcDamage(ap, crit=1):
     return (ap - random.randint(1, 5)) * crit
