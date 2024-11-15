@@ -31,7 +31,7 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer4" />
+     inkscape:current-layer="layer5" />
   <defs
      id="defs1" />
   <g
@@ -181,5 +181,22 @@
        height="33.540802"
        x="40.950375"
        y="261.99756" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#0809ff;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       d="M 104.14129,0 105,84.774666 c 0,0 -36.612651,-86.6017073 -53.266741,1.827038 15.423866,-13.969383 39.557376,0.453425 40.11205,9.500611 -21.349241,-6.538358 -35.912768,26.909795 -37.065545,45.485575 13.598846,-10.18627 28.85326,-6.47169 39.535406,-0.33494 0,0 -18.314664,-32.03862 -50.466209,-19.93748 -32.151548,12.10113 -30.694272,20.46285 -27.771008,30.69427 2.923265,10.23143 7.673569,26.67479 10.962241,28.13642 3.288673,1.46163 11.327649,5.48112 18.270402,5.11571 6.942752,-0.3654 59.926914,-19.73203 84.774664,5.11572 -33.085059,-84.51794 -57.725535,107.76428 -57.73447,94.64067 l 14.616322,-0.36541 -14.250913,2.92327 13.520097,1.46164 -13.885506,1.82703 13.520098,1.09622 -16.077954,-2.92325 19.001218,-1.46164 -19.001218,-0.7308 18.63581,4.38489"
+       id="path5"
+       sodipodi:nodetypes="ccccccssssccccccccccc" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="ball">
+    <ellipse
+       style="fill:#4a43d9;fill-opacity:1;stroke:#0809ff;stroke-width:0.442998;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="ball"
+       ry="4.1152854"
+       rx="4.2979879"
+       cy="10.41413"
+       cx="104.1413" />
   </g>
 </svg>
