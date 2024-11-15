@@ -9,18 +9,7 @@ html, body {
     width: 100%;
 }
 
-#peg-container {
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-auto-columns: 10;
-    grid-auto-rows: 5;
-}
-
-.peg {
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    background-color: #333;;
-    border: solid 2px #000;
+svg {
+    height: 500px;
+    width: 500px;
 }
