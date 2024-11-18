@@ -8,8 +8,3 @@ html, body {
     height: 100%;
     width: 100%;
 }
-
-svg {
-    border: solid 5px #222;
-    background-color: #210027;
-}

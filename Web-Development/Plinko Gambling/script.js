@@ -1,6 +1,5 @@
 const svg = document.querySelector("svg");
 
-initPlinkoBoard(200, 200, 25, 2);
 
 
 
@@ -9,20 +8,25 @@ initPlinkoBoard(200, 200, 25, 2);
 
 
 
-
-function initPlinkoBoard(x, y, pegRadius, pegSpacing) {
-
+function initPlinkoBoard(width, height, pegDiameter, pegSpacing) {
+    // Create the SVG for the plinko board
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
-    svg.setAttribute("viewbox", `0 0 ${x} ${y}`);
+    svg.setAttribute("viewbox", `0 0 ${width} ${height}`);
     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-    svg.setAttribute("width", x);
-    svg.setAttribute("height", y);
+    svg.setAttribute("width", width);
+    svg.setAttribute("height", height);
 
-    const pegX = (x / pegRadius) + (pegRadius * pegSpacing);
-    const pegY = (x / pegRadius) + (pegRadius * pegSpacing);
+    const pegRadius = pegDiameter / 2;
+    let pegCountX = width / (pegDiameter + (pegDiameter * pegSpacing)) - 1;
+    let pegCountY = height / (pegDiameter + (pegDiameter * pegSpacing));
+    let offsetX = pegRadius;
 
-    for (let y = 0; y < pegY; y++) {
-        for (let x = 0; x < pegX; x++) {
+
+    for (let y = 0; y < pegCountY; y++) {
+        offsetX = -offsetX;
+        pegCountX = y % 2 == 0 ? pegCountX + 1 : pegCountX - 1;
+
+        for (let x = 0; x < pegCountX; x++) {
             const peg = document.createElementNS("http://www.w3.org/2000/svg", "circle");
             peg.setAttribute("fill", "#181818");
             peg.setAttribute("stroke", "#eee");
@@ -31,11 +35,12 @@ function initPlinkoBoard(x, y, pegRadius, pegSpacing) {
             Math for getting X and Y:
                 (pegRadius * x) gets the initial X coord for the circle
                 (x * (pegSPacing * pegRadius)) gets the spacing between the pegs
-                + pegRadius moves it a little over so it's not clipping out of the
+                + pegRadius moves it a little over so it's not clipping
+                + offsetX is what makes the pegs positioned in an alternating pattern
             */
 
-            peg.setAttribute("cx", `${parseInt((pegRadius * x) + (x * (pegSpacing * pegRadius)) + pegRadius)}px`);
-            peg.setAttribute("cy", `${parseInt((pegRadius * y) + (y * (pegSpacing * pegRadius)) + pegRadius)}px`);
+            peg.setAttribute("cx", `${parseInt((pegDiameter * x) + (x * (pegSpacing * pegDiameter)) + pegDiameter + offsetX)}px`);
+            peg.setAttribute("cy", `${parseInt((pegDiameter * y) + (y * (pegSpacing * pegDiameter)) + pegDiameter)}px`);
             peg.setAttribute("r", pegRadius);
 
             svg.appendChild(peg);
