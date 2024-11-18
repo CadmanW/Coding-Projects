@@ -1,7 +1,6 @@
 const gameContainerEl = document.querySelector("#game-container"); // game-container is 1000 x 1000 px
 const dropBallButtonEl = document.querySelector("#drop-ball-button");
 const plinkoBoard = initPlinkoBoard(1000, 600, 25, 1.5, gameContainerEl, 20, 200);
-let ball = undefined;
 
 
 
@@ -10,8 +9,24 @@ let ball = undefined;
 
 
 dropBallButtonEl.addEventListener("click", e => {
-    ball = gameContainerEl.createElementNS("http://www.w3.org/2000/svg", "rect");
+    console.log(gameContainerEl);
+    const ball = gameContainerEl.createElementNS("http://www.w3.org/2000/svg", "circle");
+    const vector = {x: 0, y: 1, z: 0, a: 0};
+
+    console.log(ball);
+
+    requestAnimationFrame(ballProccess);
 });
+
+
+
+
+function ballProccess() {
+
+    requestAnimationFrame(ballProccess);
+}
+
+
 
 
 
