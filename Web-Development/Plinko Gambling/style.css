@@ -9,7 +9,21 @@ html, body {
     width: 100%;
 }
 
-svg {
-    height: 500px;
-    width: 500px;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-container {
+    background-color: purple;
+}
+
+#drop-ball-button {
+    border: solid 2px #222;
+    border-radius: 20px;
+    font-size: 2.5rem;
+    height: 50px;
+    width: 250px;
+    background-color: #aaa;
 }
