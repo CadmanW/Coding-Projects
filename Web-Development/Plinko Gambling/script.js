@@ -9,21 +9,24 @@ const plinkoBoard = initPlinkoBoard(1000, 600, 25, 1.5, gameContainerEl, 20, 200
 
 
 dropBallButtonEl.addEventListener("click", e => {
-    console.log(gameContainerEl);
-    const ball = gameContainerEl.createElementNS("http://www.w3.org/2000/svg", "circle");
+    const ball = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+
+    gameContainerEl.appendChild(ball);
     const vector = {x: 0, y: 1, z: 0, a: 0};
 
-    console.log(ball);
-
-    requestAnimationFrame(ballProccess);
+    requestAnimationFrame(ballProccess(vector));
 });
 
 
 
 
-function ballProccess() {
+function ballProccess(vector) {
 
-    requestAnimationFrame(ballProccess);
+    // Gravity
+    vector += {x: 0, y: -2, z: 0, a: 0}
+    console.log(vector.y);
+
+    requestAnimationFrame(ballProccess(vector));
 }
 
 
