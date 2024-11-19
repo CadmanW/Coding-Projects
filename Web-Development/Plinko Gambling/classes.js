@@ -1,24 +1,21 @@
-class Vector {
+class Position {
     x;
     y;
     a;
 
-    constructor(x, y, a) {
+    constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.a = a;
     }
 
-    add(vector) {
-        this.x += vector.x;
-        this.y += vector.y;
-        this.a += vector.a;
+    add(position) {
+        this.x += position.x;
+        this.y += position.y;
     }
 
     times(num) {
         this.x *= num;
         this.y *= num;
-        this.a *= num;
     }
 
     rotate(deg) {

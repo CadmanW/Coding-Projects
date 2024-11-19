@@ -13,6 +13,10 @@ dropBallButtonEl.addEventListener("click", e => {
     ball.setAttribute("cx", "500");
     ball.setAttribute("cy", "50");
     ball.setAttribute("r", "20");
+    ball.setAttribute("id", "ball");
+
+    ballPos.x = 500;
+    ballPos.y = 50;
 
     gameContainerEl.appendChild(ball);
 
@@ -20,19 +24,21 @@ dropBallButtonEl.addEventListener("click", e => {
 });
 
 
+let oldTime;
+let ballPos = new Position(0, 0);
 
-const ballVector = new Vector(0, 0, 0);
-const gravityVector = new Vector(0, -0.001, 0.001);
-
-function ballProccess(delta) {
-    delta /= 1000;
+function ballProccess(time) {
+    // do detta
+    const ball = document.querySelector("#ball");
     console.log("Delta:", delta);
 
     // Gravity
-    gravityVector.times(delta);
-    ballVector.add(gravityVector);
+    ballPos.add(new Position(0, -0.1));
 
-    console.log(ballVector);
+    // Apply the new ballPosition to the ball
+    ball.setAttribute("cx", parseFloat(ball.getAttribute("cx")) + ballPos.x);
+    ball.setAttribute("cy", parseFloat(ball.getAttribute("cy")) + ballPos.y);
+    
     requestAnimationFrame(ballProccess);
 }
 
