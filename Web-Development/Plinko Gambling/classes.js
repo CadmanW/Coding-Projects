@@ -15,6 +15,12 @@ class Vector {
         this.a += vector.a;
     }
 
+    times(num) {
+        this.x *= num;
+        this.y *= num;
+        this.a *= num;
+    }
+
     rotate(deg) {
         // https://math.sci.ccny.cuny.edu/document/Rotation+of+Axes
         this.x = (this.x * Math.cos(deg)) - (this.y * Math.sin(deg));
