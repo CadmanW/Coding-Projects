@@ -25,14 +25,14 @@ dropBallButtonEl.addEventListener("click", e => {
 
 
 let oldTime = 0;
-let vector = new Vector(0, 0, 0);
+let vector = new Vector(0.0, 0.0, 0.0);
 
 function ballProccess(time) {
     const delta = time - oldTime;
     oldTime = time;
 
     // Gravity
-    console.log(new Vector((vector.x * 0.9), (vector.y * vector.y > 0 ? 1.1 : 0.9), 1).times(delta));
+    console.log(new Vector((vector.x > 0.0 ? vector.x * 0.9 : vector.x * 1.1), (vector.y * 1.1), 1.0).times(delta));
 
 
 
