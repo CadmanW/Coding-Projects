@@ -30,3 +30,15 @@ class Vector {
         return `(${vector.x}, ${vector.y}, ${vector.a})`;
     }
 }
+
+class Position {
+    x;
+    y;
+
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    add()
+}

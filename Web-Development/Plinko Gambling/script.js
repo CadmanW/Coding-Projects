@@ -14,6 +14,9 @@ dropBallButtonEl.addEventListener("click", e => {
     ball.setAttribute("cy", "50");
     ball.setAttribute("r", "20");
     ball.setAttribute("id", "ball");
+    ball.setPosition() = (newPos) => {
+        
+    }
 
     ball.oldX = 500;
     ball.oldY = 50;
