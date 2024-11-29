@@ -6,20 +6,22 @@ const plinkoBoard = initPlinkoBoard(1000, 600, 25, 1.5, gameContainerEl, 20, 200
 
 
 
-let ball;
+let balls = [];
 
 dropBallButtonEl.addEventListener("click", e => {
-    ball = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    balls.push(document.createElementNS("http://www.w3.org/2000/svg", "circle"));
+    const ball = balls[balls.length - 1];
     ball.setAttribute("cx", "500");
     ball.setAttribute("cy", "50");
     ball.setAttribute("r", "20");
     ball.setAttribute("id", "ball");
-    ball.setPosition() = (newPos) => {
-        
+    ball.setPosition = function (position) {
+        ball.setAttribute("cx", parseInt(ball.getAttribute("cx")) + position.x);
+        ball.setAttribute("cy", parseInt(ball.getAttribute("cy")) + position.y);
     }
 
-    ball.oldX = 500;
-    ball.oldY = 50;
+    ball.oldX = ball.getAttribute("cx");
+    ball.oldY = ball.getAttribute("cy");
 
     gameContainerEl.appendChild(ball);
 
@@ -28,22 +30,22 @@ dropBallButtonEl.addEventListener("click", e => {
 
 
 let oldTime = 0;
-let vector = new Vector(0.0, 0.0, 0.0);
+
+const position = {
+    x: 0,
+    y: 0,
+}
 
 function ballProccess(time) {
-    const delta = time - oldTime;
+    const delta = (time - oldTime) * 0.0001;
     oldTime = time;
 
-    // Gravity
-    console.log(new Vector((vector.x > 0.0 ? vector.x * 0.9 : vector.x * 1.1), (vector.y * 1.1), 1.0).times(delta));
+    balls.forEach(ball => {
+        position.y = (position.y + 1) * delta;
 
+        ball.setPosition(position);
+    });
 
-
-    // Update ball position with vector
-    ball.setAttribute("cx", vector.x * vector.a);
-    ball.setAttribute("cy", vector.y * vector.a);
-
-    
     requestAnimationFrame(ballProccess);
 }
 
