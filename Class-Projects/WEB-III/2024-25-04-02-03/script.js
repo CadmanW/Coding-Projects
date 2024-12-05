@@ -18,9 +18,12 @@ const cowBitmap = [
 */
 
 function drawCow(color) {
+    // constant colors
     const eyeColor = "#362F2F";
     const hornColor = "#C6841F";
     const white = "#eeeeee";
+
+    // variable colors
     let lightColor;
     let darkColor;
     switch (color) {
@@ -40,7 +43,7 @@ function drawCow(color) {
             lightColor = "#C2585C";
             darkColor = "#BD6B6F";
             break;
-        case "orang)e":
+        case "orange":
             lightColor = "#C46125";
             darkColor = "#BC6718";
             break;
@@ -64,11 +67,10 @@ function drawCow(color) {
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     svg.setAttribute("viewbox", "0 0 10 8");
-    svg.setAttribute("width", "500px");
-    svg.setAttribute("height", "500px");
     document.body.appendChild(svg);
 
 
+    // draw the cow
     for (let y = 0; y < 8; y++) {
         for (let x = 0; x < 10; x++) {
             const sqrColor = colors[cowBitmap[y][x]];
@@ -83,8 +85,6 @@ function drawCow(color) {
             svg.appendChild(sqr);
         }
     }
-
-
 }
 
 
