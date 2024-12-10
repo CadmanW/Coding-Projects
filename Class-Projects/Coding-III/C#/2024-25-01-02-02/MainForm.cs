@@ -84,5 +84,95 @@ namespace _2024_25_01_02_02
                 }
             }
         }
+
+        private void ShowEnumerationButton_Click(object sender, EventArgs e)
+        {
+            DayOfWeek dayOfweek = DayOfWeek.Monday;
+
+            switch (dayOfweek)
+            {
+                case DayOfWeek.Sunday:
+                    break;
+                case DayOfWeek.Monday:
+                    break;
+                case DayOfWeek.Tuesday:
+                    break;
+                case DayOfWeek.Wednesday:
+                    break;
+                case DayOfWeek.Thursday:
+                    break;
+                case DayOfWeek.Friday:
+                    break;
+                case DayOfWeek.Saturday:
+                    break;
+                default:
+                    MessageBox.Show("Unkown day of week!");
+                    break;
+            }
+
+            Month currentMonth = Month.December;
+
+            switch (currentMonth)
+            {
+                case Month.January:
+                    break;
+                case Month.Febuary:
+                    break;
+                case Month.March:
+                    break;
+                case Month.April:
+                    break;
+                case Month.May:
+                    break;
+                case Month.June:
+                    break;
+                case Month.July:
+                    break;
+                case Month.August:
+                    break;
+                case Month.September:
+                    break;
+                case Month.October:
+                    break;
+                case Month.November:
+                    break;
+                case Month.December:
+                    MessageBox.Show("The month is December");
+                    break;
+            }
+        }
+
+        private void ShowBirdButton_Click(object sender, EventArgs e)
+        {
+            Bird newBird = new Bird();
+            MessageBox.Show(newBird);
+        }
+
+        public enum DayOfWeek
+        {
+            Sunday,
+            Monday,
+            Tuesday,
+            Wednesday,
+            Thursday,
+            Friday,
+            Saturday
+        }
+
+        public enum Month
+        {
+            January,
+            Febuary,
+            March,
+            April,
+            May,
+            June,
+            July,
+            August,
+            September,
+            October,
+            November,
+            December
+        }
     }
 }
