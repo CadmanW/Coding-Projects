@@ -66,7 +66,7 @@ function drawCow(color) {
     }
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-    svg.setAttribute("viewbox", "0 0 10 8");
+    svg.setAttribute("viewbox", "0 0 200 160");
     document.body.appendChild(svg);
 
 
@@ -76,10 +76,10 @@ function drawCow(color) {
             const sqrColor = colors[cowBitmap[y][x]];
 
             const sqr = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-            sqr.setAttribute("width", "1");
-            sqr.setAttribute("height", "1");
-            sqr.setAttribute("x", x);
-            sqr.setAttribute("y", y);
+            sqr.setAttribute("width", "20");
+            sqr.setAttribute("height", "20");
+            sqr.setAttribute("x", x * 20);
+            sqr.setAttribute("y", y * 20);
             sqr.setAttribute("fill", sqrColor);
 
             svg.appendChild(sqr);
@@ -89,3 +89,9 @@ function drawCow(color) {
 
 
 drawCow("blue");
+drawCow("green");
+drawCow("purple");
+drawCow("pink");
+drawCow("orange");
+drawCow("brown");
+drawCow("red");
