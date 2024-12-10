@@ -144,8 +144,13 @@ namespace _2024_25_01_02_02
 
         private void ShowBirdButton_Click(object sender, EventArgs e)
         {
-            Bird newBird = new Bird();
-            MessageBox.Show(newBird);
+            Bird easternBlueBird = new Bird();
+            easternBlueBird.Type = "Eastern Bluebird";
+            MessageBox.Show(easternBlueBird.Type);
+
+            Bird bluejay = new Bird();
+            bluejay.Type = "German Shepard";
+            MessageBox.Show(bluejay.Type);
         }
 
         public enum DayOfWeek
