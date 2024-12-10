@@ -24,6 +24,7 @@
         {
             LaunchEvenOddFormButton = new Button();
             LaunchFizzBuzzFormButton = new Button();
+            ShowBirdButton = new Button();
             SuspendLayout();
             // 
             // LaunchEvenOddFormButton
@@ -46,11 +47,22 @@
             LaunchFizzBuzzFormButton.UseVisualStyleBackColor = true;
             LaunchFizzBuzzFormButton.Click += LaunchFizzBuzzFormButton_Click;
             // 
+            // ShowBirdButton
+            // 
+            ShowBirdButton.Location = new Point(12, 142);
+            ShowBirdButton.Name = "ShowBirdButton";
+            ShowBirdButton.Size = new Size(233, 59);
+            ShowBirdButton.TabIndex = 2;
+            ShowBirdButton.Text = "Show Bird";
+            ShowBirdButton.UseVisualStyleBackColor = true;
+            ShowBirdButton.Click += ShowBirdButton_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(578, 344);
+            Controls.Add(ShowBirdButton);
             Controls.Add(LaunchFizzBuzzFormButton);
             Controls.Add(LaunchEvenOddFormButton);
             Margin = new Padding(4, 5, 4, 5);
@@ -62,5 +74,6 @@
 
         private Button LaunchEvenOddFormButton;
         private Button LaunchFizzBuzzFormButton;
+        private Button ShowBirdButton;
     }
 }
