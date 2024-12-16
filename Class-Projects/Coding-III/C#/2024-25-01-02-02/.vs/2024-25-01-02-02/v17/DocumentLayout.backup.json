@@ -18,15 +18,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
@@ -36,7 +32,7 @@
               "RelativeDocumentMoniker": "MainForm.cs",
               "ToolTip": "C:\\Users\\Cadman Warren\\Desktop\\Coding-Projects\\Class-Projects\\Coding-III\\C#\\2024-25-01-02-02\\MainForm.cs",
               "RelativeToolTip": "MainForm.cs",
-              "ViewState": "AgIAAHsAAAAAAAAAAAD4v48AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJAAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-09T14:31:30.569Z",
               "EditorCaption": ""
@@ -47,9 +43,9 @@
               "Title": "Bird.cs",
               "DocumentMoniker": "C:\\Users\\Cadman Warren\\Desktop\\Coding-Projects\\Class-Projects\\Coding-III\\C#\\2024-25-01-02-02\\Bird.cs",
               "RelativeDocumentMoniker": "Bird.cs",
-              "ToolTip": "C:\\Users\\Cadman Warren\\Desktop\\Coding-Projects\\Class-Projects\\Coding-III\\C#\\2024-25-01-02-02\\Bird.cs",
-              "RelativeToolTip": "Bird.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA/AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Cadman Warren\\Desktop\\Coding-Projects\\Class-Projects\\Coding-III\\C#\\2024-25-01-02-02\\Bird.cs*",
+              "RelativeToolTip": "Bird.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-09T14:25:30.019Z",
               "EditorCaption": ""
