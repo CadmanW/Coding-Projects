@@ -10,6 +10,9 @@ namespace _2024_25_01_02_02
     {
         #region properties
 
+        private Nest _nest = new Nest();
+        public Nest? Nest { get; set; } = null;
+
         private List<string> _validBirds = new List<string>();
         public List<string> ValidBirds
         {
@@ -22,20 +25,12 @@ namespace _2024_25_01_02_02
                 _validBirds = value;
             }
         }
+
         private string _type = "";
         public string Type
         {
             get {
-                if (DateTime.Now.Hour != 12)
-                {
-                    MessageBox.Show("Cannot read this property until 12 :)");
-                    return null;
-                }
-                else
-                {
-                    return _type;
-                }
-              
+                return _type;
             }
             set {
                 if (ValidBirds.Contains(value))
@@ -44,22 +39,26 @@ namespace _2024_25_01_02_02
                 }
                 else
                 {
-                    MessageBox.Show("Invalid bird specified!");
+                    MessageBox.Show("Invalid bird specified! - " + value);
                 }
             }
         }
 
         #endregion
 
-        #region constructor
+        #region methods
 
-        public Bird()
+        public Nest BuildNest()
         {
-            ValidBirds.Add("Eastern Bluebird");
-            ValidBirds.Add("American Crow");
-            ValidBirds.Add("Red-Headed Woodpecker");
-            Type = "";
+            Nest nest = new Nest();
+            Nest = nest;
+            return nest;
         }
         #endregion
+    }
+
+    public class Nest
+    { 
+    
     }
 }

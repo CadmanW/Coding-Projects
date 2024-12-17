@@ -151,6 +151,11 @@ namespace _2024_25_01_02_02
             Bird bluejay = new Bird();
             bluejay.Type = "German Shepard";
             MessageBox.Show(bluejay.Type);
+
+            foreach (String validBird in easternBlueBird.ValidBirds)
+            {
+                Debug.WriteLine("..." + validBird);
+            }
         }
 
         public enum DayOfWeek
