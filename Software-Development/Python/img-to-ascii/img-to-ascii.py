@@ -2,7 +2,7 @@ from PIL import Image
 
 ascii_chars = ["@ ", "# ", "S ", "% ", "? ", "* ", "+ ", "; ", ": ", ", ", ". "]
 
-with Image.open("Donut.jpg") as image:
+with Image.open("python.jpeg") as image:
 
     X, Y = image.size
     image = image.convert("L")
@@ -12,7 +12,7 @@ with Image.open("Donut.jpg") as image:
     for y in range(Y):
         for x in range(X):
             brightness = image.getpixel((x, y))
-            output += ascii_chars[int(brightness / 25)]
+            output += ascii_chars[int(brightness / 25)] + " "
         output += "\n"
 
 with open("ascii_image.txt", "w") as file:
