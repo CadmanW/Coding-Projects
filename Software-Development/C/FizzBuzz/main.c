@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int main () {
+int main (void) {
 
     unsigned char again = 'y';
 
@@ -9,9 +9,9 @@ int main () {
     {
 
         // Game
-        printf("Input a number:\n");
+	int input;
 
-        int input;
+        printf("Input a number:\n");
         scanf("%i", &input);
 
         if ((input % 5 == 0) && (input % 3 == 0)) {
@@ -29,4 +29,6 @@ int main () {
 
         scanf(" %c", &again);
     }
+
+    return 1;
 }
