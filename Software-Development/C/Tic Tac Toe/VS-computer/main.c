@@ -5,18 +5,17 @@
 int main(void) {
 
     // 1 = 'X', 0 = ' ', -1 = 'O'
-    int board[3][3] = {
-        {0, 0, 0},
-        {0, 0, 0},
-        {0, 0, 0}
-    };
+    int board[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
     // single character input
     char input;
     int playerLetter;
     int getInput = 1;
+    int playerTurnChosen;
+    int playerOneLetter;
+    int playerTwoLetter;
     // Using pointers to the turn functions so that the player can choose if they want to go first or second
-    void(*do_player_one_turn)(int board[3][3], int playerLetter);
-    void(*do_player_two_turn)(int board[3][3], int playerLetter);
+    void(*do_player_one_turn)(int board[9], int playerLetter);
+    void(*do_player_two_turn)(int board[9], int playerLetter);
 
     clear_terminal();
 
@@ -26,11 +25,13 @@ int main(void) {
         if (input == 'y') {
             do_player_one_turn = &do_human_turn;
             do_player_two_turn = &do_computer_turn;
+            playerTurnChosen = 1;
             getInput = 0;
         }
         else if (input == 'n') {
             do_player_two_turn = &do_computer_turn;
             do_player_one_turn = &do_human_turn;
+            playerTurnChosen = 2;
             getInput = 0;
         }
         else {
@@ -60,6 +61,15 @@ int main(void) {
                 getInput = 1;
         }
 
+        if (playerTurnChosen == 1) {
+            playerOneLetter = playerLetter;
+            playerTwoLetter = playerLetter * -1;
+        }
+        else if (playerTurnChosen == 2) {
+            playerOneLetter = playerLetter * -1;
+            playerTwoLetter = playerLetter;
+        }
+
     } while (getInput);
 
 
@@ -68,13 +78,27 @@ int main(void) {
         // alternate who's turn it is
         if (i % 2 == 0) {
             (*do_player_one_turn)(board, playerLetter);
-            if (check_for_win(board, playerLetter)) {
+            if (check_for_win(board, playerOneLetter)) {
+                // Check if winning player is human or computer
+                if (playerTurnChosen == 1) {
+                    printf("\nYou won!!\n");
+                }
+                else if (playerTurnChosen == 2) {
+                    printf("\nYou lost :(\n");
+                }
                 break;
             }
         }
         else {
             (*do_player_two_turn)(board, playerLetter);
-            if (check_for_win(board, playerLetter)) {
+            if (check_for_win(board, playerTwoLetter)) {
+                // Check if winning player is human or computer
+                if (playerTurnChosen == 1) {
+                    printf("\n\nYou won!!");
+                }
+                else if (playerTurnChosen == 2) {
+                    printf("\n\nYou lost :(");
+                }
                 break;
             }
         }

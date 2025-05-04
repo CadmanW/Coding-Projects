@@ -2,16 +2,16 @@
 void clear_terminal(void);
 
 // Displays the board to the player
-void display_board(int board[3][3]);
+void display_board(int board[9]);
 
 // Turns the board of integers into characters to be displayed to the player
-void get_char_board(int board[3][3], char char_board[3][3]);
+void get_char_board(int board[9], char char_board[9]);
 
 // Does the human's turn
-void do_human_turn(int board[3][3], int playerLetter);
+void do_human_turn(int board[9], int playerLetter);
 
 //check for a win, handle it (including output and user interaction for a game ended scenario), and return 1 if the game should end, 0 to continue
-int check_for_win(int board[3][3], int playerLetter);
+int check_for_win(int board[9], int playerLetterToCheck);
 
 
 
@@ -23,66 +23,56 @@ void clear_terminal(void) {
     printf("\033[H\033[J");
 }
 
-void display_board(int board[3][3]) {
+void display_board(int board[9]) {
 
-    char char_board[3][3];
+    char char_board[9];
     get_char_board(board, char_board);
 
     clear_terminal();
     
     printf("+---+---+---+\n");
-    printf("| %c | %c | %c |\n", char_board[0][0], char_board[0][1], char_board[0][2]);
+    printf("| %c | %c | %c |\n", char_board[0], char_board[1], char_board[2]);
     printf("+---+---+---+\n");
-    printf("| %c | %c | %c |\n", char_board[1][0], char_board[1][1], char_board[1][2]);
+    printf("| %c | %c | %c |\n", char_board[3], char_board[4], char_board[5]);
     printf("+---+---+---+\n");
-    printf("| %c | %c | %c |\n", char_board[2][0], char_board[2][1], char_board[2][2]);
+    printf("| %c | %c | %c |\n", char_board[6], char_board[7], char_board[8]);
     printf("+---+---+---+\n");
 }
 
-void get_char_board(int board[3][3], char char_board[3][3]) {
+void get_char_board(int board[9], char char_board[9]) {
     // n keeps track of which tile the loop is on, so if it's an empty square, the correct tile number will be set to said tile
-    int n = 1;
-    for (int y = 0; y < 3; y++) {
-        for (int x = 0; x < 3; x++) {
-            switch(board[y][x]) {
-                case 1:
-                    char_board[y][x] = 'X';
-                    break;
+    for (int i = 0; i < 9; i++) {
+        switch(board[i]) {
+            case 1:
+                char_board[i] = 'X';
+                break;
 
-                case -1:
-                    char_board[y][x] = 'O';
-                    break;
+            case -1:
+                char_board[i] = 'O';
+                break;
 
-                default:
-                    char_board[y][x] = n + '0'; // add '0' to convert from int to char
-            }
-            n++;
+            default:
+                char_board[i] = i + '0'; // add '0' to convert from int to char
         }
     }
 }
 
 
-void do_human_turn(int board[3][3], int playerLetter) {
+void do_human_turn(int board[9], int playerLetter) {
 
     int getInput = 1;
     int input;
-    int y;
-    int x;
 
     display_board(board);
 
     printf("Your turn, pick a square's number to put your letter there:\n> ");
 
     do {
-        scanf("%i", &input);
-
-
-        y = input / 3;
-        x = (input % 3) - 1; // -1 to make index start at 0 instead of 1, picks the correct tile
+        scanf(" %i", &input);
 
         // Make sure the chosen space hasn't been taken
-        if (board[y][x] == 0 && input <= 9 && input >= 1) {
-            board[y][x] = playerLetter;
+        if (board[input] == 0 && input <= 8 && input >= 0) {
+            board[input] = playerLetter;
             getInput = 0;
         }
         else {
@@ -91,39 +81,33 @@ void do_human_turn(int board[3][3], int playerLetter) {
     } while (getInput);
 }
 
-int check_for_win(int board[3][3], int playerLetter) {
-    int possibleWinPatterns[8][3][2] = {
+int check_for_win(int board[9], int playerLetterToCheck) {
+    int possibleWinPatterns[8][3] = {
         // Rows
-        {{0, 0}, {0, 1}, {0, 2}},
-        {{1, 0}, {1, 1}, {1, 2}},
-        {{2, 0}, {2, 1}, {2, 2}},
+        {0, 1, 2},
+        {3, 4, 5},
+        {6, 7, 8},
 
         // Columns
-        {{0, 0}, {1, 0}, {2, 0}},
-        {{0, 1}, {1, 1}, {2, 1}},
-        {{0, 2}, {1, 2}, {2, 2}},
+        {0, 3, 6},
+        {1, 4, 7},
+        {2, 5, 8},
 
         // Diagonals
-        {{0, 0}, {1, 1}, {2, 2}},
-        {{2, 0}, {1, 1}, {0, 2}}
+        {0, 4, 8},
+        {6, 4, 2}
     };
 
+    // iterate through possibleWinPatterns to check for a win in each pattern
     for (int y = 0; y < 8; y++) {
         int sum = 0;
-        for (int x = 0; y < 3; y++) {
-            sum += board[possibleWinPatterns[y][x][0]][possibleWinPatterns[y][x][1]];
+        for (int x = 0; x < 3; x++) {
+            sum += board[possibleWinPatterns[y][x]];
         }
-        switch (sum) {
-            case 3:
-                return 1;
-                break;
-            case -3:
-                return -1;
-                break;
+        if (sum == playerLetterToCheck * 3) {
+            return 1;
         }
     }
-
+    // If playerx did not win, return 0;
     return 0;
 }
-
-// FINISH REFACTORING CHECK WIN
