@@ -47,7 +47,6 @@ int main(void) {
 
     // Getting input: asking if player wants to be 'X's or 'O's
     do {
-        // Let player choose their prefered letter
         printf("Which letter would you like? ( X | O )\n> ");
         scanf(" %c", &input);
 
@@ -113,10 +112,3 @@ int main(void) {
     }
     printf("Tie! Nobody won.\n");
 }
-
-
-
-
-
-
-

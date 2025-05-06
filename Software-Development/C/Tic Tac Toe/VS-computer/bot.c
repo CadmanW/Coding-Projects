@@ -10,6 +10,7 @@ void do_computer_turn(int board[9], int computerLetter) {
     int moveCounter = 0;
     int bestMove = -1;
 
+    // Call minimax 
     for (int tileC = 0; tileC < 9; tileC++) {
         minimax(board, scores, depth, moveCounter, tileC, computerLetter);
         moveCounter++;

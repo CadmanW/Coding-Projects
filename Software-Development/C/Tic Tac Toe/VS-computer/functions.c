@@ -10,7 +10,7 @@ void get_char_board(int board[9], char char_board[9]);
 // Does the human's turn
 void do_human_turn(int board[9], int playerLetter);
 
-//check for a win, handle it (including output and user interaction for a game ended scenario), and return 1 if the game should end, 0 to continue
+// Check for a win, handle it (including output and user interaction for a game ended scenario), and return 1 if the game should end, 0 to continue
 int check_for_win(int board[9], int playerLetterToCheck);
 
 
@@ -24,11 +24,11 @@ void clear_terminal(void) {
 }
 
 void display_board(int board[9]) {
-
+    // Turn the numbers from board to the corresponding letters: 1 = X, 0 = _, -1 = O
     char char_board[9];
     get_char_board(board, char_board);
 
-    //clear_terminal();
+    clear_terminal();
     
     printf("+---+---+---+\n");
     printf("| %c | %c | %c |\n", char_board[0], char_board[1], char_board[2]);
@@ -40,7 +40,7 @@ void display_board(int board[9]) {
 }
 
 void get_char_board(int board[9], char char_board[9]) {
-    // n keeps track of which tile the loop is on, so if it's an empty square, the correct tile number will be set to said tile
+    // Iterate through board and assign the corresponding index in char_board 
     for (int i = 0; i < 9; i++) {
         switch(board[i]) {
             case 1:
@@ -65,6 +65,8 @@ void do_human_turn(int board[9], int playerLetter) {
 
     display_board(board);
 
+
+    // Get input: ask where the play would like to go for their turn
     printf("Your turn, pick a square's number to put your letter there:\n> ");
 
     do {
@@ -98,13 +100,14 @@ int check_for_win(int board[9], int playerLetterToCheck) {
         {6, 4, 2}
     };
 
-    // iterate through possibleWinPatterns to check for a win in each pattern
+    // iterate through possibleWinPatterns to check for a win in each pattern by adding the numbers in the win pattern
     for (int y = 0; y < 8; y++) {
         int sum = 0;
         for (int x = 0; x < 3; x++) {
             sum += board[possibleWinPatterns[y][x]];
         }
         if (sum == playerLetterToCheck * 3) {
+            // If playerx wins, return 1
             return 1;
         }
     }
