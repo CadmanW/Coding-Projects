@@ -5,7 +5,11 @@
 int main(void) {
 
     // 1 = 'X', 0 = ' ', -1 = 'O'
-    int board[9] = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    int board[9] = {
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, 0
+    };
     // single character input
     char input;
     int playerLetter;
@@ -19,6 +23,7 @@ int main(void) {
 
     clear_terminal();
 
+    // Getting input: Asking if player would like to go first or second
     do {
         printf("Would you like to go first? ( y | n )\n> ");
         scanf(" %c", &input);
@@ -40,6 +45,7 @@ int main(void) {
         }
     } while (getInput);
 
+    // Getting input: asking if player wants to be 'X's or 'O's
     do {
         // Let player choose their prefered letter
         printf("Which letter would you like? ( X | O )\n> ");
@@ -77,32 +83,35 @@ int main(void) {
     for (int i = 0; i < 9; i++) {
         // alternate who's turn it is
         if (i % 2 == 0) {
-            (*do_player_one_turn)(board, playerLetter);
+            (*do_player_one_turn)(board, playerOneLetter);
             if (check_for_win(board, playerOneLetter)) {
                 // Check if winning player is human or computer
+                display_board(board);
                 if (playerTurnChosen == 1) {
                     printf("\nYou won!!\n");
                 }
                 else if (playerTurnChosen == 2) {
                     printf("\nYou lost :(\n");
                 }
-                break;
+                return 1;
             }
         }
         else {
-            (*do_player_two_turn)(board, playerLetter);
+            (*do_player_two_turn)(board, playerTwoLetter);
             if (check_for_win(board, playerTwoLetter)) {
                 // Check if winning player is human or computer
-                if (playerTurnChosen == 1) {
-                    printf("\n\nYou won!!");
+                display_board(board);
+                if (playerTurnChosen == 2) {
+                    printf("\nYou won!!\n");
                 }
-                else if (playerTurnChosen == 2) {
-                    printf("\n\nYou lost :(");
+                else if (playerTurnChosen == 1) {
+                    printf("\nYou lost :(\n");
                 }
-                break;
+                return 1;
             }
         }
     }
+    printf("Tie! Nobody won.\n");
 }
 
 

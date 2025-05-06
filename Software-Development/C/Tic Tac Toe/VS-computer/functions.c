@@ -28,7 +28,7 @@ void display_board(int board[9]) {
     char char_board[9];
     get_char_board(board, char_board);
 
-    clear_terminal();
+    //clear_terminal();
     
     printf("+---+---+---+\n");
     printf("| %c | %c | %c |\n", char_board[0], char_board[1], char_board[2]);
