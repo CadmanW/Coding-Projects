@@ -41,3 +41,18 @@ then get the highest score entry from scores, the go with the associated move; I
 
 
 ```
+
+#### New Psudocode
+purpose of minimax function is to see what the best possible move is for a given player
+
+```
+function minimax(board, computerLetter) {
+    for each empty tile of board {
+        go here
+        check for win with computerLetter
+        if we win, score of this move is 1
+        if there is a tie, score of this move is 0
+    }
+}
+
+```
