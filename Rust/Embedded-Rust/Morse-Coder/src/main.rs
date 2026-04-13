@@ -89,42 +89,56 @@ async fn output_morse_code<'d, T: Instance + 'd>(cdc_acm: &mut CdcAcmClass<'d, D
 
 // Handle input/output using the usb serial connection
 async fn handle_usb_serial_connection<'d, T: Instance + 'd>(cdc_acm: &mut CdcAcmClass<'d, Driver<'d, T>>, cyw43_control: &mut Control<'_>) -> Result<(), Disconnected> {
-    let mut line_buffer = [0u8; 256];
-    let mut line_len = 0;
+    let mut input_buffer = [0u8; 256];
+    let mut input_len = 0;
     let mut buffer = [0u8; 128];
     loop {
         // Load input into line_buffer until enter is pressed
-        let n = cdc_acm.read_packet(&mut buffer).await?;
-        for &byte in &buffer[..n] {
-            // If enter is pressed (line sent)
-            if byte == b'\r' {
-                // Output the line in morse code
-                cdc_acm.write_packet(b"\r\n").await?;
-                for &byte in &line_buffer[..line_len] {
-                    let byte = byte.to_ascii_uppercase();
-                    match byte {
-                        b'A'..=b'z' => {
-                            cdc_acm.write_packet(&[byte, b' ', b'>', b' ']).await?;
-                            output_morse_code(cdc_acm, cyw43_control, MORSE_LETTERS[(byte - b'A') as usize]).await?;
-                            Timer::after_millis(500).await;
-                        }
-                        b'0'..=b'9' => {
-                            cdc_acm.write_packet(&[byte]).await?;
-                            output_morse_code(cdc_acm, cyw43_control, MORSE_NUMBERS[(byte - b'0') as usize]).await?;
-                            Timer::after_millis(500).await;
-                        }
-                        b' ' => {
-                            Timer::after_millis(700).await;
-                        }
-                        _ => {}
-                    }
+        let packet_length = cdc_acm.read_packet(&mut buffer).await?;
+
+        for &packet_byte in &buffer[..packet_length] {
+            match packet_byte {
+                b'\r' => { // If "enter" is recieved
                     cdc_acm.write_packet(b"\r\n").await?;
+
+                    // Output the line in morse code
+                    for &byte in &input_buffer[..input_len] {
+                        let byte = byte.to_ascii_uppercase();
+
+                        match byte {
+                            b'A'..=b'Z' | b'a'..=b'z' => { // Any letter, uppercase or lowercase
+                                cdc_acm.write_packet(&[byte, b' ', b'>', b' ']).await?;
+                                output_morse_code(cdc_acm, cyw43_control, MORSE_LETTERS[(byte - b'A') as usize]).await?;
+                                Timer::after_millis(500).await;
+                            }
+                            b'0'..=b'9' => {
+                                cdc_acm.write_packet(&[byte]).await?;
+                                output_morse_code(cdc_acm, cyw43_control, MORSE_NUMBERS[(byte - b'0') as usize]).await?;
+                                Timer::after_millis(500).await;
+                            }
+                            b' ' => {
+                                Timer::after_millis(700).await;
+                            }
+                            _ => {}
+                        }
+
+                        cdc_acm.write_packet(b"\r\n").await?;
+                    }
+
+                    input_len = 0;
                 }
-                line_len = 0;
-            } else {
-                line_buffer[line_len] = byte;
-                line_len += 1;
-                cdc_acm.write_packet(&[byte]).await?;
+
+                b'\x7f' => {
+                    if input_len > 0 {
+                        input_len -= 1;
+                    }
+                    cdc_acm.write_packet(&[packet_byte]).await?;
+                }
+                _ => {
+                    cdc_acm.write_packet(&[packet_byte]).await?;
+                    input_buffer[input_len] = packet_byte;
+                    input_len += 1;
+                }
             }
         }
     }
