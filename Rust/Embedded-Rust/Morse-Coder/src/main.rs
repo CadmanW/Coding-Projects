@@ -136,8 +136,10 @@ async fn handle_usb_serial_connection<'d, T: Instance + 'd>(cdc_acm: &mut CdcAcm
                 }
                 _ => {
                     cdc_acm.write_packet(&[packet_byte]).await?;
-                    input_buffer[input_len] = packet_byte;
-                    input_len += 1;
+                    if input_len < input_buffer.len() {
+                        input_buffer[input_len] = packet_byte;
+                        input_len += 1;
+                    }
                 }
             }
         }
