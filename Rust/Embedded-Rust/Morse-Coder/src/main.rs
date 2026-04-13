@@ -106,7 +106,7 @@ async fn handle_usb_serial_connection<'d, T: Instance + 'd>(cdc_acm: &mut CdcAcm
                         let byte = byte.to_ascii_uppercase();
 
                         match byte {
-                            b'A'..=b'Z' | b'a'..=b'z' => { // Any letter, uppercase or lowercase
+                            b'A'..=b'Z' => { // Any letter, uppercase or lowercase
                                 cdc_acm.write_packet(&[byte, b' ', b'>', b' ']).await?;
                                 output_morse_code(cdc_acm, cyw43_control, MORSE_LETTERS[(byte - b'A') as usize]).await?;
                                 Timer::after_millis(500).await;
