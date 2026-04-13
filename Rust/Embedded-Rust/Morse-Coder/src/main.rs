@@ -1,8 +1,6 @@
 #![no_std]
 #![no_main]
 
-use core::str;
-
 use cyw43::{Control, aligned_bytes};
 use cyw43_pio::{DEFAULT_CLOCK_DIVIDER, PioSpi};
 use defmt::{panic, unwrap};
@@ -61,28 +59,34 @@ impl From<EndpointError> for Disconnected {
 }
 
 
-
-
-
 //* --------------------- */
 //* ------ MY CODE ------ */
 //* --------------------- */
+// Morse Timing
+const DIT_MS: u64 = 100;
+const DAH_MS: u64 = DIT_MS * 3;
+const INTRA_SYMBOL_GAP_MS: u64 = DIT_MS;
+// Inter-character gap is 3 units total, but INTRA_SYMBOL_GAP_MS is already
+// waited at the start of each symbol, so we only need 2 more units here.
+const INTER_CHAR_GAP_MS: u64 = DIT_MS * 2;
+// Inter-word gap is 7 units total, minus the INTRA_SYMBOL_GAP_MS already waited.
+const INTER_WORD_GAP_MS: u64 = DIT_MS * 6;
 
-async fn output_morse_code<'d, T: Instance + 'd>(cdc_acm: &mut CdcAcmClass<'d, Driver<'d, T>>, cyw43_control: &mut Control<'_>, str: &str) -> Result<(), Disconnected> {
-    for &symbol in str.as_bytes() {
+async fn output_morse_code<'d, T: Instance + 'd>(cdc_acm: &mut CdcAcmClass<'d, Driver<'d, T>>, cyw43_control: &mut Control<'_>, morse_str: &str) -> Result<(), Disconnected> {
+    for &symbol in morse_str.as_bytes() {
+        Timer::after_millis(INTRA_SYMBOL_GAP_MS).await;
         cdc_acm.write_packet(&[symbol]).await?;
         cyw43_control.gpio_set(0, true).await;
         match symbol {
             b'-' => {
-                Timer::after_millis(300).await;
+                Timer::after_millis(DAH_MS).await;
             }
             b'.' => {
-                Timer::after_millis(100).await;
+                Timer::after_millis(DIT_MS).await;
             }
             _ => {}
         }
         cyw43_control.gpio_set(0, false).await;
-        Timer::after_millis(100).await;
     }
     Ok(())
 }
@@ -106,23 +110,23 @@ async fn handle_usb_serial_connection<'d, T: Instance + 'd>(cdc_acm: &mut CdcAcm
                         let byte = byte.to_ascii_uppercase();
 
                         match byte {
-                            b'A'..=b'Z' => { // Any letter, uppercase or lowercase
+                            b'A'..=b'Z' => {
                                 cdc_acm.write_packet(&[byte, b' ', b'>', b' ']).await?;
                                 output_morse_code(cdc_acm, cyw43_control, MORSE_LETTERS[(byte - b'A') as usize]).await?;
-                                Timer::after_millis(500).await;
+                                cdc_acm.write_packet(b"\r\n").await?;
+                                Timer::after_millis(INTER_CHAR_GAP_MS).await;
                             }
                             b'0'..=b'9' => {
                                 cdc_acm.write_packet(&[byte]).await?;
                                 output_morse_code(cdc_acm, cyw43_control, MORSE_NUMBERS[(byte - b'0') as usize]).await?;
-                                Timer::after_millis(500).await;
+                                cdc_acm.write_packet(b"\r\n").await?;
+                                Timer::after_millis(INTER_CHAR_GAP_MS).await;
                             }
                             b' ' => {
-                                Timer::after_millis(700).await;
+                                Timer::after_millis(INTER_WORD_GAP_MS).await;
                             }
                             _ => {}
                         }
-
-                        cdc_acm.write_packet(b"\r\n").await?;
                     }
 
                     input_len = 0;
