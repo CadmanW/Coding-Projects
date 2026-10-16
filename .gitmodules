@@ -1,0 +1,3 @@
+[submodule "Embedded/C/Aerial-Data-Projector/FreeRTOS-Kernel"]
+	path = Embedded/C/Aerial-Data-Projector/FreeRTOS-Kernel
+	url = https://github.com/raspberrypi/FreeRTOS-Kernel.git
